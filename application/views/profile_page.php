@@ -13,10 +13,27 @@
             <div class="card-body"> 
                <h4 class="card-title">John Doe</h4>
                 <p class="card-text">Some example text.</p>
-                <?php foreach ($veriler as $rs){ ?>
-                <?=$rs->first_name?>
-                
-                <?php } ?>
+              <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <tbody>
+                                         <?php foreach ($veriler as $rs){ ?>
+                                            <tr><td><?=$rs->first_name?></td> </tr>
+                                            <tr><td><?=$rs->last_name?></td></tr>
+                                            <tr><td><?=$rs->job?></td></tr>
+                                            <tr><td><?=$rs->location?></td>
+                                            <tr><td><?=$rs->experiance?></td>
+                                            <tr><td><?=$rs->skill?></td>
+                                            <tr><td><a href="" class="btn btn-success">Detay</a></td>
+                                        <?php  }?>
+                                    </tbody>
+                                </table>
+                             
+                                <hr>
+                                
+                            </div>
+                            <!--/.table-responsive -->
+            </div>
                 <a href="#" class="btn btn-primary">See Profile</a>
             </div>
     </div>
