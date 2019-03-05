@@ -40,6 +40,43 @@ class Settings extends CI_Controller {
                redirect(base_url().'Settings');
                
 	}
+         public function picture($id){
+        
+             $data["id"]=$id;
+             $this->load->view('profile_picture',$data);
+	}
+         public function picture_save($id){
+               $data["id"]=$id;
+                 
+                $config['upload_path']          = './upload/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 300;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 1024;
+
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('picture'))
+                {
+                        //uyarı mesajı ekle html kısmında.
+                        $error = $this->upload->display_errors();
+                        $this->session->set_flashdata("mesaj","Yüklemede Hata oluştu".$error);
+                        $this->load->view('profile_picture',$data);
+                }
+                else
+                {
+                        $upload_data = $this->upload->data();
+                        $data=array(
+                          'Picture'=>$upload_data["file_name"]  
+                        );
+                        $this->load->model('Database_Model');
+                        $this->Database_Model->update_data("users",$data,$id);
+                        redirect(base_url().'Settings');
+                        
+                }
+        
+            
+	}
 	
 
 
