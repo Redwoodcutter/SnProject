@@ -37,7 +37,7 @@ class Settings extends CI_Controller {
                 ) ; 
                $this->Database_Model->update_data("users",$data,$id);
                $this->session->set_flashdata("mesaj","Üye Ekleme Başariyla Gerçekleştirildi..");     
-               redirect(base_url().'Admin/ayarlar');
+               redirect(base_url().'Settings');
                
 	}
 	

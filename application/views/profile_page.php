@@ -13,7 +13,7 @@
             <div class="card-body"> 
                  <?php foreach ($veriler as $rs){ ?>
                <h1 class="card-title"><?=$rs->first_name?><?php echo ' ';?><?=$rs->last_name?></h1>
-                <h3 class="card-title"><?=$rs->city?><?php echo ' ';?><?=$rs->location?></h3>
+                <h3 class="card-title"><?=$rs->city;echo ' '; ?><?=$rs->location?></h3>
                 <h5><?=$rs->e_mail?></h5>
                 <p class="card-text"><?=$rs->pt_message?></p>
             </div>
@@ -40,10 +40,8 @@
               </div>
             </div>
           </div>
-            
-             <div class="col-lg-12 col-md-12 mb-12">
+        <div class="col-lg-12 col-md-12 mb-12">
             <div class="card h-100">
-              
               <div class="card-body">
                 <h4 class="card-title">
                     <a>Egitim </a>
@@ -55,10 +53,9 @@
                 <small class="text-muted"> <a href="#" class="btn btn-primary">Ekle</a></small>
               </div>
             </div>
-          </div>
-             <div class="col-lg-12 col-md-12 mb-12">
-            <div class="card h-100">
-              
+        </div>
+        <div class="col-lg-12 col-md-12 mb-12">
+            <div class="card h-100">     
               <div class="card-body">
                 <h4 class="card-title">
                   <lu href="#">Yetenek ve Onaylar </lu>
@@ -71,9 +68,8 @@
                </div>
             </div>
           </div>
-             <div class="col-lg-12 col-md-12 mb-12">
+        <div class="col-lg-12 col-md-12 mb-12">
             <div class="card h-100">
-              
               <div class="card-body">
                 <h4 class="card-title">
                   <lu href="#">Başarılar </lu>
@@ -85,13 +81,12 @@
                 <small class="text-muted"> <a href="#" class="btn btn-primary">Ekle</a></small>
               </div>
             </div>
-          </div>
+        </div>
              <div class="col-lg-12 col-md-12 mb-12">
             <div class="card h-100">
-              
               <div class="card-body">
                 <h4 class="card-title">
-                  <lu href="#">İlgi Alanları </lu>
+                <lu href="#">İlgi Alanları </lu>
                 </h4>
                 <h5><?=$rs->goal?></h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
