@@ -15,7 +15,7 @@ class Settings extends CI_Controller {
 	
 	public function index()
 	{         
-             $query=$this->db->query("SELECT * FROM users");
+                $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session["Id"]);
                 $data["veri"]=$query->result();
             
             
