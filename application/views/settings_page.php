@@ -71,7 +71,7 @@
                           </div> 
 
 
-                <h4>Hakkımızda Ayarları</h4>
+                <h4>Biografi Ayarları</h4>
 
                    <div class="form-group " >
                         <label for="inputEmail3" class="control-label" ></label><br>
