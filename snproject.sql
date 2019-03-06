@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 05 Mar 2019, 04:14:29
+-- Üretim Zamanı: 06 Mar 2019, 17:26:08
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -21,6 +21,42 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `snproject`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `experiances`
+--
+
+DROP TABLE IF EXISTS `experiances`;
+CREATE TABLE IF NOT EXISTS `experiances` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `start_month` varchar(255) NOT NULL,
+  `start_year` varchar(255) NOT NULL,
+  `finish_month` varchar(255) NOT NULL,
+  `finish_year` varchar(255) NOT NULL,
+  `e_location` varchar(255) NOT NULL,
+  `exp_text` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `skills`
+--
+
+DROP TABLE IF EXISTS `skills`;
+CREATE TABLE IF NOT EXISTS `skills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(255) NOT NULL,
+  `skill` varchar(255) NOT NULL,
+  `rating` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -44,6 +80,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `city` varchar(50) NOT NULL,
   `pt_message` longtext NOT NULL,
   `collage` varchar(100) NOT NULL,
+  `picture` varchar(255) NOT NULL,
   PRIMARY KEY (`id`,`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
@@ -51,9 +88,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Tablo döküm verisi `users`
 --
 
-INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `password`, `job`, `location`, `experiance`, `skill`, `goal`, `e_mail`, `city`, `pt_message`, `collage`) VALUES
-(1, 0, 'oguz', 'k', '123', 'Student', 'Turkey', '5 years', 'C, C#, unity, Php', 'ingilizce', 'oguzk@gmail.com', 'istanbul', 'text mesaji long text olarak duzenlenmistir', 'karabük üniversitesi bilgisayar mühendisligi'),
-(2, 0, 'bilal', 'bark', '123', 'Karabük', 'Turkiye', '2 years', 'Json Api, Restfull Api', 'dil ingilizce türkçe', 'mbilalbar@gmail.com', 'ankara', 'text mesaji long text olarak duzenlenmistir turkish ci olarak da duzeltilmesi lazin', 'Ankara universitesi');
+INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `password`, `job`, `location`, `experiance`, `skill`, `goal`, `e_mail`, `city`, `pt_message`, `collage`, `picture`) VALUES
+(1, 0, 'oguz', 'k', '123', 'Student', 'Turkey', 'Github.com 2015', 'C, C#, unity, Php', 'ingilizce', 'oguzk@gmail.com', 'istanbul', 'text mesaji long text olarak duzenlenmistir', 'karabük üniversitesi bilgisayar mühendisligi', '026.jpg'),
+(2, 0, 'bilal', 'bark', '123', 'Karabük', 'Turkiye', '2 years', 'Json Api, Restfull Api', 'dil ingilizce türkçe', 'mbilalbar@gmail.com', 'ankara', 'text mesaji long text olarak duzenlenmistir turkish ci olarak da duzeltilmesi lazin', 'Ankara universitesi', 'artist_1039821.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
