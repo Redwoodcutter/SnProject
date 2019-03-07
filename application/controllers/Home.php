@@ -31,6 +31,8 @@ class Home extends CI_Controller {
              $data["su_id"]=$query->result(); // su_id == skills user id 
              $query=$this->db->query("SELECT * FROM goals WHERE user_id=$id");
              $data["gu_id"]=$query->result(); // gu_id == goals user id
+             $query=$this->db->query("SELECT * FROM educations WHERE user_id=$id");
+             $data["eu_id"]=$query->result(); // eu_id == educations user id
              $query=$this->db->query("SELECT * FROM users WHERE id=$id");
              $data["veriler"]=$query->result();
              
