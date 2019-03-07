@@ -23,6 +23,7 @@
       </div>
       <!-- /.col-lg-3 -->
       
+      
       <div class="col-lg-9">
           
         <div class="row">
@@ -31,70 +32,94 @@
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title">
-                  <lu href="#">Deneyim </lu>
+                  <lu href="#">Experiance </lu>
                 </h4>
-                <h5><?=$rs->experiance?></h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                    <?php foreach ($user_id as $eui){  ?>
+                    <h5><b><?=$eui->title?></b></h5>
+                    <h5><?=$eui->company?></h5>
+                    <p><?=$eui->start_month?> <?=$eui->start_year?>, <?=$eui->finish_month;?> <?=$eui->finish_year?></p>
+                    <p><?=$eui->e_city?>, <?=$eui->e_location?></p>
+                    <?php } ?>
               </div>
+            <?php if($this->session->Member_session['Id'] == $rs->id){?>
               <div class="card-footer">
                 <small class="text-muted"> <a href="#" class="btn btn-primary">Ekle</a></small>
               </div>
+            <?php } ?>
             </div>
           </div>
+            
         <div class="col-lg-12 col-md-12 mb-12">
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title">
-                    <a>Egitim </a>
+                    <a>Education </a>
                 </h4>
                 <h5><?=$rs->collage?></h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
+            <?php if($this->session->Member_session['Id'] == $rs->id){?>
               <div class="card-footer">
                 <small class="text-muted"> <a href="#" class="btn btn-primary">Ekle</a></small>
               </div>
+            <?php } ?>
             </div>
         </div>
+            
         <div class="col-lg-12 col-md-12 mb-12">
             <div class="card h-100">     
               <div class="card-body">
                 <h4 class="card-title">
-                  <lu href="#">Yetenek ve Onaylar </lu>
+                  <lu href="#">Skills </lu>
                 </h4>
+                   <?php foreach ($su_id as $sui){  ?>
+                    <h5><b><?=$sui->skill?></b></h5>
+                    <h5><?=$sui->rating?></h5>
+                    <?php } ?>
                 <h5><?=$rs->skill?></h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                
               </div>
-               <div class="card-footer">
+            <?php if($this->session->Member_session['Id'] == $rs->id){?>
+              <div class="card-footer">
                 <small class="text-muted"> <a href="#" class="btn btn-primary">Ekle</a></small>
-               </div>
+              </div>
+            <?php } ?>
             </div>
-          </div>
+        </div>
+            
         <div class="col-lg-12 col-md-12 mb-12">
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title">
                   <lu href="#">Başarılar </lu>
                 </h4>
-                <h5><?=$rs->skill?></h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                   <?php foreach ($gu_id as $gui){  ?>
+                    <h5><b><?=$gui->title?></b></h5>
+                    <p><?=$gui->start_month?> <?=$gui->start_year?>, <?=$gui->finish_month;?> <?=$gui->finish_year?></p>
+                    <p><?=$gui->goal_text?></p>
+                    <?php } ?>
               </div>
-               <div class="card-footer">
+               <?php if($this->session->Member_session['Id'] == $rs->id){?>
+              <div class="card-footer">
                 <small class="text-muted"> <a href="#" class="btn btn-primary">Ekle</a></small>
               </div>
+                <?php } ?>
             </div>
         </div>
              <div class="col-lg-12 col-md-12 mb-12">
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title">
-                <lu href="#">İlgi Alanları </lu>
+                <lu href="#">Following </lu>
                 </h4>
                 <h5><?=$rs->goal?></h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-               <div class="card-footer">
+               <?php if($this->session->Member_session['Id'] == $rs->id){?>
+              <div class="card-footer">
                 <small class="text-muted"> <a href="#" class="btn btn-primary">Ekle</a></small>
               </div>
+                <?php } ?>
             </div>
           </div>
         </div>

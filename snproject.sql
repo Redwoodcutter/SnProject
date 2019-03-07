@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 07 Mar 2019, 08:53:50
+-- Üretim Zamanı: 07 Mar 2019, 12:21:25
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -39,9 +39,16 @@ CREATE TABLE IF NOT EXISTS `experiances` (
   `finish_month` varchar(255) CHARACTER SET latin1 NOT NULL,
   `finish_year` varchar(255) CHARACTER SET latin1 NOT NULL,
   `e_location` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `exp_text` longtext CHARACTER SET latin1 NOT NULL,
+  `e_city` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+--
+-- Tablo döküm verisi `experiances`
+--
+
+INSERT INTO `experiances` (`id`, `user_id`, `title`, `company`, `start_month`, `start_year`, `finish_month`, `finish_year`, `e_location`, `e_city`) VALUES
+(41, '1', 'koder', 'github', 'ocak', '2015', 'mart', '2020', 'turkey', 'istanbul');
 
 -- --------------------------------------------------------
 
@@ -52,15 +59,24 @@ CREATE TABLE IF NOT EXISTS `experiances` (
 DROP TABLE IF EXISTS `goals`;
 CREATE TABLE IF NOT EXISTS `goals` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `start_month` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `start_year` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `finish_month` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `finish_year` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `goal_text` longtext CHARACTER SET latin1 NOT NULL,
+  `user_id` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `title` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `start_month` varchar(255) CHARACTER SET ucs2 COLLATE ucs2_turkish_ci NOT NULL,
+  `start_year` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `finish_month` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `finish_year` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `goal_text` longtext COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=544 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+--
+-- Tablo döküm verisi `goals`
+--
+
+INSERT INTO `goals` (`id`, `user_id`, `title`, `start_month`, `start_year`, `finish_month`, `finish_year`, `goal_text`) VALUES
+(90, '1', 'PHP certificate', 'April', '2012', 'June', '2023', 'Long text here about to goals'),
+(543, '1', 'RESTFULL API', 'agust', '2015', 'September', '2021', 'Goal text about to rest apı certification'),
+(321, '1', 'Unity 3D', 'july', '2010', 'november', '2012', 'Goal text about to rest apı certification');
 
 -- --------------------------------------------------------
 
@@ -72,10 +88,18 @@ DROP TABLE IF EXISTS `skills`;
 CREATE TABLE IF NOT EXISTS `skills` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(255) NOT NULL,
-  `skill` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `rating` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `skill` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `rating` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+--
+-- Tablo döküm verisi `skills`
+--
+
+INSERT INTO `skills` (`id`, `user_id`, `skill`, `rating`) VALUES
+(65, 1, 'C language', '4'),
+(52, 1, 'Php', '1');
 
 -- --------------------------------------------------------
 
@@ -95,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `experiance` varchar(30) CHARACTER SET latin1 NOT NULL,
   `skill` varchar(30) CHARACTER SET latin1 NOT NULL,
   `goal` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `e_mail` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `e_mail` varchar(60) CHARACTER SET latin1 NOT NULL,
   `city` varchar(50) CHARACTER SET latin1 NOT NULL,
   `pt_message` longtext CHARACTER SET latin1 NOT NULL,
   `collage` varchar(100) CHARACTER SET latin1 NOT NULL,

@@ -23,8 +23,14 @@ class Home extends CI_Controller {
             redirect(base_url().'Login');    
         }
         
-         public function profile($id)
+         public function profile($id) // Profile Page all of users
         { 
+             $query=$this->db->query("SELECT * FROM experiances WHERE user_id=$id");
+             $data["user_id"]=$query->result();
+             $query=$this->db->query("SELECT * FROM skills WHERE user_id=$id");
+             $data["su_id"]=$query->result(); // su_id == skills user id 
+             $query=$this->db->query("SELECT * FROM goals WHERE user_id=$id");
+             $data["gu_id"]=$query->result(); // gu_id == goals user id
              $query=$this->db->query("SELECT * FROM users WHERE id=$id");
              $data["veriler"]=$query->result();
              
