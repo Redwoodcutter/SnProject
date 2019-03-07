@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 06 Mar 2019, 17:26:08
+-- Üretim Zamanı: 07 Mar 2019, 08:53:50
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -31,17 +31,36 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `experiances`;
 CREATE TABLE IF NOT EXISTS `experiances` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `company` varchar(255) NOT NULL,
-  `start_month` varchar(255) NOT NULL,
-  `start_year` varchar(255) NOT NULL,
-  `finish_month` varchar(255) NOT NULL,
-  `finish_year` varchar(255) NOT NULL,
-  `e_location` varchar(255) NOT NULL,
-  `exp_text` longtext NOT NULL,
+  `user_id` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `company` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `start_month` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `start_year` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `finish_month` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `finish_year` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `e_location` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `exp_text` longtext CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `goals`
+--
+
+DROP TABLE IF EXISTS `goals`;
+CREATE TABLE IF NOT EXISTS `goals` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `start_month` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `start_year` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `finish_month` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `finish_year` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `goal_text` longtext CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -53,10 +72,10 @@ DROP TABLE IF EXISTS `skills`;
 CREATE TABLE IF NOT EXISTS `skills` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(255) NOT NULL,
-  `skill` varchar(255) NOT NULL,
-  `rating` varchar(255) NOT NULL,
+  `skill` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `rating` varchar(255) CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -68,21 +87,21 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `first_name` varchar(16) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `job` varchar(30) NOT NULL,
-  `location` varchar(30) NOT NULL,
-  `experiance` varchar(30) NOT NULL,
-  `skill` varchar(30) NOT NULL,
-  `goal` varchar(30) NOT NULL,
-  `e_mail` varchar(30) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `pt_message` longtext NOT NULL,
-  `collage` varchar(100) NOT NULL,
-  `picture` varchar(255) NOT NULL,
+  `first_name` varchar(16) CHARACTER SET latin1 NOT NULL,
+  `last_name` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `job` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `location` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `experiance` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `skill` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `goal` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `e_mail` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `city` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `pt_message` longtext CHARACTER SET latin1 NOT NULL,
+  `collage` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `picture` varchar(255) CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`,`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `users`
