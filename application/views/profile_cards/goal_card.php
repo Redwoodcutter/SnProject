@@ -39,9 +39,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                  ---------------GoalAdd-------------------
-                  
-                  
+                   <?php $this->load->view('form_pages/goal_add_form') ?>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>
@@ -58,9 +56,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                  ---------------GoalEdit-------------------
-                  
-                  
+                    <?php $this->load->view('form_pages/goal_edit_form') ?>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>

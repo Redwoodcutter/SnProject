@@ -39,9 +39,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                  ---------------skill add----  
-                  
-                  
+                    <?php $this->load->view('form_pages/skill_add_form') ?>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>
@@ -58,9 +56,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                  ---------------SkillEdit-------------
-                  
-                  
+                 <?php $this->load->view('form_pages/skill_edit_form') ?>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>

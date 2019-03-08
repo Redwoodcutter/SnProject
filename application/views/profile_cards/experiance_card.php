@@ -32,16 +32,16 @@
 <!-- MODAL BEGİN -->
         
     <!-- Experiance  Add Modal -->
-          <div class="modal fade" id="ExprerianceAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="ExprerianceAdd" tabindex="-1" role="dialog" aria-labelledby="ExprerianceAdd" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Experiance Add Page</h5>
                   <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                    <?php $this->load->view('form_pages/exp_form') ?>
+                    <?php $this->load->view('form_pages/exp_add_form') ?>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>
@@ -50,7 +50,7 @@
             </div>
           </div>
        <!-- Experiance Edit Modal -->
-          <div class="modal fade" id="ExprerianceEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="ExprerianceEdit" tabindex="-1" role="dialog" aria-labelledby="ExprerianceEdit" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -59,7 +59,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                    ExprerianceEdit
+                   <?php $this->load->view('form_pages/exp_edit_form') ?>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>

@@ -42,9 +42,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                  ---------------EducationAdd-------------------
-                  
-                  
+                  <?php $this->load->view('form_pages/edu_add_form') ?> 
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>
@@ -61,9 +59,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                  ---------------EducationEdit-------------------
-                  
-                  
+                  <?php $this->load->view('form_pages/edu_edit_form') ?>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                   <a class="btn btn-primary" href="login.html">Logout</a>
