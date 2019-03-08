@@ -6,7 +6,7 @@
 
     <div class="row">
 <?php foreach ($veriler as $rs){ ?>
-      <div class="col-lg-9">
+      <div class="col-lg-12">
           <?php $this->load->view('profile_cards\info_card') ?>
      <!-- /.col-lg-9 -->
       <div class="col-lg-9">
