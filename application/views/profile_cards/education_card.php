@@ -1,7 +1,8 @@
+
 <?php foreach($veriler as $rs) {?>
 
 
- <div class="col-lg-12 col-md-12 mb-12">
+        <div class="col-lg-12 col-md-12 mb-12" style="margin-top:20px;">
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title">
@@ -30,6 +31,7 @@
                </div>
             </div>
         </div>
+
 <!-- MODAL BEGİN -->
         
     <!-- Education Modal -->
@@ -68,3 +70,4 @@
             </div>
           </div>
  <?php } ?>
+    

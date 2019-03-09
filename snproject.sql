@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 07 Mar 2019, 12:21:25
+-- Üretim Zamanı: 09 Mar 2019, 13:04:29
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -25,11 +25,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `experiances`
+-- Tablo için tablo yapısı `educations`
 --
 
-DROP TABLE IF EXISTS `experiances`;
-CREATE TABLE IF NOT EXISTS `experiances` (
+DROP TABLE IF EXISTS `educations`;
+CREATE TABLE IF NOT EXISTS `educations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `school` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `department` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `degree` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `point` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `clubs` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `start_month` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `start_year` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `finish_month` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `finish_year` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `media` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `e_text` longtext COLLATE utf32_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1232 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+--
+-- Tablo döküm verisi `educations`
+--
+
+INSERT INTO `educations` (`id`, `user_id`, `school`, `department`, `degree`, `point`, `clubs`, `start_month`, `start_year`, `finish_month`, `finish_year`, `media`, `e_text`) VALUES
+(41, 1, 'karabük univercity', 'computer engineering', 'bachelor', '5/4', 'Robotics Club', 'march', '2012', 'april', '2020', '', 'Text about to collage or univercity '),
+(1231, 1, 'neşet yalçın high school', 'science', '100/70', '', '', 'september', '2007', 'july', '2011', '', 'Text about to your high school or someting ');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `experiences`
+--
+
+DROP TABLE IF EXISTS `experiences`;
+CREATE TABLE IF NOT EXISTS `experiences` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(255) CHARACTER SET latin1 NOT NULL,
   `title` varchar(255) CHARACTER SET latin1 NOT NULL,
@@ -41,14 +73,19 @@ CREATE TABLE IF NOT EXISTS `experiances` (
   `e_location` varchar(255) CHARACTER SET latin1 NOT NULL,
   `e_city` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
--- Tablo döküm verisi `experiances`
+-- Tablo döküm verisi `experiences`
 --
 
-INSERT INTO `experiances` (`id`, `user_id`, `title`, `company`, `start_month`, `start_year`, `finish_month`, `finish_year`, `e_location`, `e_city`) VALUES
-(41, '1', 'koder', 'github', 'ocak', '2015', 'mart', '2020', 'turkey', 'istanbul');
+INSERT INTO `experiences` (`id`, `user_id`, `title`, `company`, `start_month`, `start_year`, `finish_month`, `finish_year`, `e_location`, `e_city`) VALUES
+(41, '1', 'koder', 'github', 'ocak', '2015', 'mart', '2020', 'turkey', 'istanbul'),
+(43, '1', 'Experiences test', 'Testing Company', 'july', '2019', 'november', '2020', 'Turkey', 'Karabuk'),
+(44, '1', 'Experiences test 2 ', 'ElderSociety', '12312', '20191', 'november', '20201', 'Turkey', 'Karabük'),
+(45, '1', 'Deneme form sill', 'form ekleme', 'july', '2019', 'november', '2020', 'karabük', 'Karabük'),
+(46, '1', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme'),
+(47, '1', 'Experiences test', 'deneme', '12312', 'deneme', '123', '3132131', '3131', 'Karabük');
 
 -- --------------------------------------------------------
 

@@ -24,8 +24,10 @@ class Home extends CI_Controller {
         }
         
          public function profile($id) // Profile Page all of users
-        { 
-             $query=$this->db->query("SELECT * FROM experiances WHERE user_id=$id");
+        {    
+             $query=$this->db->query("SELECT * FROM experiences id");
+             $data["ex_id"]=$query->result();
+             $query=$this->db->query("SELECT * FROM experiences WHERE user_id=$id");
              $data["user_id"]=$query->result();
              $query=$this->db->query("SELECT * FROM skills WHERE user_id=$id");
              $data["su_id"]=$query->result(); // su_id == skills user id 

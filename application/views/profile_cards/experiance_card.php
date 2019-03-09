@@ -1,5 +1,5 @@
 <?php foreach($veriler as $rs) {?>
-                <div class="col-lg-12 col-md-12 mb-12">
+        <div class="col-lg-12 col-md-12 mb-12" style="margin-top:20px;">
             <div class="card h-100">
                 <div class="card-body">
                 <h4 class="card-title">
@@ -15,11 +15,12 @@
                     <h5>
                         <b><?=$eui->title?></b>
                         <?php if($this->session->Member_session['Id'] == $rs->id){?>
-                            <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#ExprerianceEdit">
+                        <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#ExprerianceEdit" >
                                 <i class="fas fa-pen fa-sm"></i>
-                            </button>
+                        </button>
                         <?php } ?>
                     </h5> 
+                        <?=$eui->id?>
                         <h5><?=$eui->company?></h5>
                         <p><?=$eui->start_month?> <?=$eui->start_year?>, <?=$eui->finish_month;?> <?=$eui->finish_year?></p>
                         <p><?=$eui->e_city?>, <?=$eui->e_location?></p>
