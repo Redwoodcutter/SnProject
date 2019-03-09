@@ -1,4 +1,3 @@
-
 <?php foreach($veriler as $rs) {?>
 
 
@@ -18,7 +17,7 @@
                     <h5>
                         <b><?=$edui->school?></b>
                         <?php if($this->session->Member_session['Id'] == $rs->id){?>
-                            <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#EducationEdit">
+                            <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#EducationEdit" onclick="myFunction1('<?=$edui->id?>','<?=$edui->school?>','<?=$edui->department?>','<?=$edui->degree?>','<?=$edui->point?>','<?=$edui->start_month?>','<?=$edui->start_year?>','<?=$edui->finish_month?>','<?=$edui->finish_year?>');">
                                 <i class="fas fa-pen fa-sm"></i>
                             </button>
                         <?php } ?>
@@ -31,7 +30,7 @@
                </div>
             </div>
         </div>
-
+ <?php } ?>
 <!-- MODAL BEGİN -->
         
     <!-- Education Modal -->
@@ -62,12 +61,21 @@
                   </button>
                 </div>
                   <?php $this->load->view('form_pages/edu_edit_form') ?>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
               </div>
             </div>
           </div>
- <?php } ?>
-    
+
+    <script>
+function myFunction1(id,School,Department,Degree,Point,StartMonth,StartYear,FinishMonth,FinishYear){
+  document.getElementById("myForm1").elements.namedItem("id").value = id;
+  document.getElementById("myForm1").elements.namedItem("School").value = School;
+  document.getElementById("myForm1").elements.namedItem("Department").value = Department;
+  document.getElementById("myForm1").elements.namedItem("Degree").value = Degree;
+  document.getElementById("myForm1").elements.namedItem("Point").value = Point;
+  document.getElementById("myForm1").elements.namedItem("StartMonth").value = StartMonth;
+  document.getElementById("myForm1").elements.namedItem("StartYear").value = StartYear;
+  document.getElementById("myForm1").elements.namedItem("FinishMonth").value = FinishMonth;
+  document.getElementById("myForm1").elements.namedItem("FinishYear").value = FinishYear;
+ 
+ }
+</script>

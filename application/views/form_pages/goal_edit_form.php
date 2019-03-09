@@ -1,4 +1,4 @@
-<?php foreach($veriler as $rs) {?>
+
             <form class="modal-body">
             <div class="form-row">
               <div class="form-group col-md-12">
@@ -26,17 +26,14 @@
                 </div>
                 
             </div>
-                 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-            </div>
-                
-          
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Goal Text Area</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" name="GoalText"></textarea>
+                </div>
+                <br>
            
             <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
 
-<?php } ?>

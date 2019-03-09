@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 09 Mar 2019, 17:06:11
+-- Üretim Zamanı: 09 Mar 2019, 22:01:29
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `educations` (
 
 INSERT INTO `educations` (`id`, `user_id`, `school`, `department`, `degree`, `point`, `clubs`, `start_month`, `start_year`, `finish_month`, `finish_year`, `media`, `e_text`) VALUES
 (41, 1, 'karabük univercity', 'computer engineering', 'bachelor', '5/4', 'Robotics Club', 'march', '2012', 'april', '2020', '', 'Text about to collage or univercity '),
-(1231, 1, 'neşet yalçın high school', 'science', '100/70', '', '', 'september', '2007', 'july', '2011', '', 'Text about to your high school or someting ');
+(44, 1, 'Neşet Yalçın High School', 'Science', 'Bachelors', '100/75', '', 'September', '2007', 'July', '2011', '', 'Text about to your high school or someting ');
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ INSERT INTO `experiences` (`id`, `user_id`, `title`, `company`, `start_month`, `
 (53, '2', 'Junior Developper', 'Cevdet Company', 'july', '2005', 'november', '2010', 'Ankara', 'Turkey'),
 (54, '2', 'Senior Developper', 'Sen Co', 'November', '2010', 'Agust', '2015', 'Ankara', 'Turkey'),
 (55, '1', 'Senior Developper', 'Türkçe Yazı Testi', 'February', '2001', 'April', '2007', 'Turkey', 'İstanbul'),
-(56, '1', 'Junior Developper', 'Karabük univercity', 'September', '2012', 'March', '2020', 'Turkey', 'Karabük');
+(56, '1', 'Junior Developper', 'Karabük univercity', 'September', '2012', 'July', '2020', 'Turkey', 'Karabük');
 
 -- --------------------------------------------------------
 
