@@ -15,7 +15,7 @@
                     <h5>
                         <b><?=$eui->title?></b>
                         <?php if($this->session->Member_session['Id'] == $rs->id){?>
-                            <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#ExprerianceEdit" onclick="myFunction('<?=$eui->id?>','<?=$eui->title?>','<?=$eui->company?>','<?=$eui->start_month?>','<?=$eui->start_year?>','<?=$eui->finish_month?>','<?=$eui->finish_year?>','<?=$eui->e_city?>','<?=$eui->e_location?>');">
+                            <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#ExprerianceEdit" onclick="myFunction('<?=$eui->id?>','<?=$eui->title?>','<?=$eui->company?>','<?=$eui->start_month?>','<?=$eui->start_year?>','<?=$eui->finish_month?>','<?=$eui->finish_year?>','<?=$eui->e_location?>','<?=$eui->e_city?>');">
                                 <i class="fas fa-pen fa-sm"></i>
                             </button>
                         <?php } ?>

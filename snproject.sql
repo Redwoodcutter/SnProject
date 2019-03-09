@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 09 Mar 2019, 13:04:29
+-- Üretim Zamanı: 09 Mar 2019, 17:06:11
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -63,29 +63,27 @@ INSERT INTO `educations` (`id`, `user_id`, `school`, `department`, `degree`, `po
 DROP TABLE IF EXISTS `experiences`;
 CREATE TABLE IF NOT EXISTS `experiences` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `company` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `start_month` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `start_year` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `finish_month` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `finish_year` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `e_location` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `user_id` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `title` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `company` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `start_month` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `start_year` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `finish_month` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `finish_year` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `e_location` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `e_city` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `experiences`
 --
 
 INSERT INTO `experiences` (`id`, `user_id`, `title`, `company`, `start_month`, `start_year`, `finish_month`, `finish_year`, `e_location`, `e_city`) VALUES
-(41, '1', 'koder', 'github', 'ocak', '2015', 'mart', '2020', 'turkey', 'istanbul'),
-(43, '1', 'Experiences test', 'Testing Company', 'july', '2019', 'november', '2020', 'Turkey', 'Karabuk'),
-(44, '1', 'Experiences test 2 ', 'ElderSociety', '12312', '20191', 'november', '20201', 'Turkey', 'Karabük'),
-(45, '1', 'Deneme form sill', 'form ekleme', 'july', '2019', 'november', '2020', 'karabük', 'Karabük'),
-(46, '1', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme'),
-(47, '1', 'Experiences test', 'deneme', '12312', 'deneme', '123', '3132131', '3131', 'Karabük');
+(53, '2', 'Junior Developper', 'Cevdet Company', 'july', '2005', 'november', '2010', 'Ankara', 'Turkey'),
+(54, '2', 'Senior Developper', 'Sen Co', 'November', '2010', 'Agust', '2015', 'Ankara', 'Turkey'),
+(55, '1', 'Senior Developper', 'Türkçe Yazı Testi', 'February', '2001', 'April', '2007', 'Turkey', 'İstanbul'),
+(56, '1', 'Junior Developper', 'Karabük univercity', 'September', '2012', 'March', '2020', 'Turkey', 'Karabük');
 
 -- --------------------------------------------------------
 
@@ -148,19 +146,19 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `first_name` varchar(16) CHARACTER SET latin1 NOT NULL,
-  `last_name` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `password` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `job` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `location` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `experiance` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `skill` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `goal` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `e_mail` varchar(60) CHARACTER SET latin1 NOT NULL,
-  `city` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `pt_message` longtext CHARACTER SET latin1 NOT NULL,
-  `collage` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `picture` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `first_name` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `password` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `job` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `location` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `experiance` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `skill` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `goal` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `e_mail` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `city` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `pt_message` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `collage` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`,`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
@@ -169,8 +167,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `password`, `job`, `location`, `experiance`, `skill`, `goal`, `e_mail`, `city`, `pt_message`, `collage`, `picture`) VALUES
-(1, 0, 'oguz', 'k', '123', 'Student', 'Turkey', 'Github.com 2015', 'C, C#, unity, Php', 'ingilizce', 'oguzk@gmail.com', 'istanbul', 'text mesaji long text olarak duzenlenmistir', 'karabük üniversitesi bilgisayar mühendisligi', '026.jpg'),
-(2, 0, 'bilal', 'bark', '123', 'Karabük', 'Turkiye', '2 years', 'Json Api, Restfull Api', 'dil ingilizce türkçe', 'mbilalbar@gmail.com', 'ankara', 'text mesaji long text olarak duzenlenmistir turkish ci olarak da duzeltilmesi lazin', 'Ankara universitesi', 'artist_1039821.jpg');
+(1, 1, 'oguz', 'kumcular', '123', '', '', '', '', '', 'oguzkumcular@gmail.com', '', 'Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text', '', '02.jpg'),
+(2, 0, 'Bilal', 'Bark', '123', '', '', '', '', '', 'bilalbark@gmail.com', '', '', '', 'artist_103982.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
