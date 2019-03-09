@@ -1,5 +1,5 @@
 <?php foreach($veriler as $rs) {?>
-            <form class="modal-body">
+            <form class="modal-body" method="post" action="<?=base_url()?>Profile/goal_add">
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="inputEmail4">Title</label>
@@ -27,12 +27,12 @@
                 
             </div>
                  
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-            </div>
+            <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Goal Text Area</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" name="GoalText" id="GoalText"></textarea>
+                </div>
                 
           
            

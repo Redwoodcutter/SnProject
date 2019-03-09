@@ -5,7 +5,7 @@
                 <h4 class="card-title">
                   <lu href="#">Başarılar</lu>
                   <?php if($this->session->Member_session['Id'] == $rs->id){?>
-                        <button class="btn btn-primary" style="float: right;" type="button" data-toggle="modal" data-target="#GoalAdd">
+                  <button class="btn btn-primary" style="float: right;" type="button" data-toggle="modal" data-target="#GoalAdd"  >
                             <i class="fas fa-plus fa-sm"></i>
                         </button>
                    <?php } ?>
@@ -15,7 +15,7 @@
                      <h5>
                         <b><?=$gui->title?></b>
                         <?php if($this->session->Member_session['Id'] == $rs->id){?>
-                            <button class="btn btn-primary" style="float:right;"  type="button" data-toggle="modal" data-target="#GoalEdit">
+                            <button class="btn btn-primary" style="float:right;"  type="button" data-toggle="modal" data-target="#GoalEdit" onclick="myFunction2('<?=$gui->id?>','<?=$gui->title?>','<?=$gui->start_month?>','<?=$gui->start_year?>','<?=$gui->finish_month?>','<?=$gui->finish_year?>','<?=$gui->goal_text?>');">
                                 <i class="fas fa-pen fa-sm"></i>
                             </button>
                         <?php } ?>
@@ -66,3 +66,19 @@
           </div>
 
 <?php } ?>
+
+    
+<script>
+function myFunction2(id,Title,StartMonth,StartYear,FinishMonth,FinishYear,GoalText){
+  document.getElementById("myForm2").elements.namedItem("id").value = id;
+  document.getElementById("myForm2").elements.namedItem("Title").value = Title;
+  document.getElementById("myForm2").elements.namedItem("StartMonth").value = StartMonth;
+  document.getElementById("myForm2").elements.namedItem("StartYear").value = StartYear;
+  document.getElementById("myForm2").elements.namedItem("FinishMonth").value = FinishMonth;
+  document.getElementById("myForm2").elements.namedItem("FinishYear").value = FinishYear;
+  document.getElementById("myForm2").elements.namedItem("GoalText").value = GoalText;
+ 
+ 
+ 
+ }
+</script>

@@ -1,6 +1,9 @@
 
-            <form class="modal-body">
+            <form class="modal-body" id="myForm2" method="post" action="<?=base_url()?>Profile/goal_edit">
             <div class="form-row">
+                  <div class="form-group col-md-12" >
+                <input hidden class="form-control" id="id"  name="id" value="" >
+              </div>
               <div class="form-group col-md-12">
                 <label for="inputEmail4">Title</label>
                 <input type="text" class="form-control" id="Title" placeholder="Title" name="Title">
@@ -18,7 +21,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputCity">FinishMonth</label>
-                  <input type="text" class="form-control" id="FinishYear" placeholder="FinishYear" name="FinishMonth" >
+                  <input type="text" class="form-control" id="FinishMonth" placeholder="FinishMonth" name="FinishMonth" >
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputCity">FinishYear</label>
@@ -30,7 +33,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">Goal Text Area</span>
                     </div>
-                    <textarea class="form-control" aria-label="With textarea" name="GoalText"></textarea>
+                    <textarea class="form-control" aria-label="With textarea" name="GoalText" id="GoalText"></textarea>
                 </div>
                 <br>
            

@@ -1,5 +1,5 @@
 <?php foreach($veriler as $rs) {?>
-            <form class="modal-body">
+            <form class="modal-body" method="post" action="<?=base_url()?>Profile/education_add">
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="inputEmail4">School</label>
