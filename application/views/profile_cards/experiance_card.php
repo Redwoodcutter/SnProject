@@ -15,12 +15,11 @@
                     <h5>
                         <b><?=$eui->title?></b>
                         <?php if($this->session->Member_session['Id'] == $rs->id){?>
-                        <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#ExprerianceEdit" >
+                            <button class="btn btn-primary" style="float:right;"  type="button"  data-toggle="modal" data-target="#ExprerianceEdit" onclick="myFunction('<?=$eui->id?>','<?=$eui->title?>','<?=$eui->company?>','<?=$eui->start_month?>','<?=$eui->start_year?>','<?=$eui->finish_month?>','<?=$eui->finish_year?>','<?=$eui->e_city?>','<?=$eui->e_location?>');">
                                 <i class="fas fa-pen fa-sm"></i>
-                        </button>
+                            </button>
                         <?php } ?>
                     </h5> 
-                        <?=$eui->id?>
                         <h5><?=$eui->company?></h5>
                         <p><?=$eui->start_month?> <?=$eui->start_year?>, <?=$eui->finish_month;?> <?=$eui->finish_year?></p>
                         <p><?=$eui->e_city?>, <?=$eui->e_location?></p>
@@ -29,7 +28,7 @@
               </div>
             </div>
           </div>
-
+<?php } ?>
 <!-- MODAL BEGİN -->
         
     <!-- Experiance  Add Modal -->
@@ -68,4 +67,19 @@
               </div>
             </div>
           </div>
-<?php } ?>
+
+
+<script>
+function myFunction(id,Title,Company,StartMonth,StartYear,FinishMonth,FinishYear,Location,City){
+  document.getElementById("myForm").elements.namedItem("id").value = id;
+  document.getElementById("myForm").elements.namedItem("Title").value = Title;
+  document.getElementById("myForm").elements.namedItem("Company").value = Company;
+  document.getElementById("myForm").elements.namedItem("StartMonth").value = StartMonth;
+  document.getElementById("myForm").elements.namedItem("StartYear").value = StartYear;
+  document.getElementById("myForm").elements.namedItem("FinishMonth").value = FinishMonth;
+  document.getElementById("myForm").elements.namedItem("FinishYear").value = FinishYear;
+  document.getElementById("myForm").elements.namedItem("Location").value = Location;
+  document.getElementById("myForm").elements.namedItem("City").value = City;
+ 
+ }
+</script>

@@ -35,16 +35,12 @@ class Profile extends CI_Controller {
                
                $this->session->set_flashdata("mesaj","Experiences Added");       
                
+                redirect(base_url().'Home');        
         
         }
            public function experience_edit(){
-             
-            
-             $query=$this->db->query("SELECT * FROM experience WHERE user_id=".$this->session->uye_session["id"]);
-             $data["uye"]=$query->result();
-            
-             
-             $data=array(
+               
+               $data=array(
                 'user_id'=>$this->session->Member_session["Id"], // user_id == session id
                 'title'=>$this->input->post('Title'),
                 'company'=>$this->input->post('Company'),
@@ -54,11 +50,10 @@ class Profile extends CI_Controller {
                 'finish_year'=>$this->input->post('FinishYear'),
                 'e_location'=>$this->input->post('Location'),
                 'e_city'=>$this->input->post('City')   
-                );     
-                        
-               $this->db->insert("experiences",$data);
+                );
                
-               $this->session->set_flashdata("mesaj","Experiences Update");       
+               $this->Database_Model->update_data("experiences",$data,$this->input->post('id'));
+               redirect(base_url().'Home');        
                
         
         }
