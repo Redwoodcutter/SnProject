@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 09 Mar 2019, 22:01:29
+-- Üretim Zamanı: 13 Mar 2019, 20:11:32
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `snproject`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `chat`
+--
+
+DROP TABLE IF EXISTS `chat`;
+CREATE TABLE IF NOT EXISTS `chat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `message` text COLLATE utf32_turkish_ci NOT NULL,
+  `attachment_name` text COLLATE utf32_turkish_ci NOT NULL,
+  `file_ext` text COLLATE utf32_turkish_ci NOT NULL,
+  `mime_type` text COLLATE utf32_turkish_ci NOT NULL,
+  `message_date_time` text COLLATE utf32_turkish_ci NOT NULL,
+  `ip_address` text COLLATE utf32_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -44,15 +64,16 @@ CREATE TABLE IF NOT EXISTS `educations` (
   `media` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `e_text` longtext COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1232 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=1233 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `educations`
 --
 
 INSERT INTO `educations` (`id`, `user_id`, `school`, `department`, `degree`, `point`, `clubs`, `start_month`, `start_year`, `finish_month`, `finish_year`, `media`, `e_text`) VALUES
-(41, 1, 'karabük univercity', 'computer engineering', 'bachelor', '5/4', 'Robotics Club', 'march', '2012', 'april', '2020', '', 'Text about to collage or univercity '),
-(44, 1, 'Neşet Yalçın High School', 'Science', 'Bachelors', '100/75', '', 'September', '2007', 'July', '2011', '', 'Text about to your high school or someting ');
+(41, 1, 'Karabük univercity', 'Computer Engineering', 'bachelor', '5/4', 'Robotics Club', 'March', '2012', 'April', '2020', '', 'Text about to collage or univercity '),
+(44, 1, 'Neşet Yalçın High School', 'Science', 'Bachelors', '100/75', '', 'September', '2007', 'July', '2011', '', 'Text about to your high school or someting '),
+(1232, 1, 'karabük univercity', 'deneme profil bölüm', '1', '1', '', '1', '1', '1', '1', '', '');
 
 -- --------------------------------------------------------
 
@@ -73,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `experiences` (
   `e_location` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `e_city` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `experiences`
@@ -82,8 +103,11 @@ CREATE TABLE IF NOT EXISTS `experiences` (
 INSERT INTO `experiences` (`id`, `user_id`, `title`, `company`, `start_month`, `start_year`, `finish_month`, `finish_year`, `e_location`, `e_city`) VALUES
 (53, '2', 'Junior Developper', 'Cevdet Company', 'july', '2005', 'november', '2010', 'Ankara', 'Turkey'),
 (54, '2', 'Senior Developper', 'Sen Co', 'November', '2010', 'Agust', '2015', 'Ankara', 'Turkey'),
-(55, '1', 'Senior Developper', 'Türkçe Yazı Testi', 'February', '2001', 'April', '2007', 'Turkey', 'İstanbul'),
-(56, '1', 'Junior Developper', 'Karabük univercity', 'September', '2012', 'July', '2020', 'Turkey', 'Karabük');
+(55, '1', 'Senior ', 'Türkçe Yazı Testi', 'Ocak', '2010', 'April', '2007', 'Turkey', 'İstanbul'),
+(57, '1', 'basari ekleme deneme', '12332121', '123', '123', '213', '123', '123', '123'),
+(56, '1', 'Junior Developper', 'Karabük univercity edit deneme', 'September', '2012', 'July', '2020', 'Turkey', 'Karabük'),
+(58, '1', '123', '123', '123', '123', '123', '123', '123', '123'),
+(59, '1', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme');
 
 -- --------------------------------------------------------
 
@@ -102,16 +126,31 @@ CREATE TABLE IF NOT EXISTS `goals` (
   `finish_year` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `goal_text` longtext COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=544 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=545 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `goals`
 --
 
 INSERT INTO `goals` (`id`, `user_id`, `title`, `start_month`, `start_year`, `finish_month`, `finish_year`, `goal_text`) VALUES
-(90, '1', 'PHP certificate', 'April', '2012', 'June', '2023', 'Long text here about to goals'),
+(90, '1', 'PHP certificate1', 'April', '2012', 'June', '2023', 'Long text here about to goals'),
 (543, '1', 'RESTFULL API', 'agust', '2015', 'September', '2021', 'Goal text about to rest apı certification'),
-(321, '1', 'Unity 3D', 'july', '2010', 'november', '2012', 'Goal text about to rest apı certification');
+(321, '1', 'Unity 3D', 'july', '2010', 'november', '2012', 'Goal text about to rest apı certification'),
+(544, '1', 'basari ekleme deneme', 'September', '2005', 'July', '2011', 'basari degistirme edit');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `relations`
+--
+
+DROP TABLE IF EXISTS `relations`;
+CREATE TABLE IF NOT EXISTS `relations` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `other_user_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -167,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `password`, `job`, `location`, `experiance`, `skill`, `goal`, `e_mail`, `city`, `pt_message`, `collage`, `picture`) VALUES
-(1, 1, 'oguz', 'kumcular', '123', '', '', '', '', '', 'oguzkumcular@gmail.com', '', 'Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text', '', '02.jpg'),
+(1, 1, 'oguz', 'kumcular', '123', '', '', '', '', '', 'oguzkumcular@gmail.com', '', 'Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text ', '', '02.jpg'),
 (2, 0, 'Bilal', 'Bark', '123', '', '', '', '', '', 'bilalbark@gmail.com', '', '', '', 'artist_103982.jpg');
 COMMIT;
 
