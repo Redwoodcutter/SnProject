@@ -17,6 +17,7 @@
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Profil Bölümü Ekle
                         </button>
+                      
                         <div class="dropdown-menu ">
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#EducationAdd">Tanıtım Mesajı Ekle</a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#ExprerianceAdd">Deneyim Bilgisi Ekle</a>
@@ -25,8 +26,11 @@
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#GoalAdd">Başarım Bilgisi Ekle</a>
                         </div>
                     </div>
+                  
+                    <?php }else {?>
+                    <button type="button" class="btn btn-primary">Bağlantılara Ekle</button>
+                    <button type="button" class="btn btn-primary">Mesaj Gönder</button>
                     <?php } ?>
-
                     <hr>
                     <p class="card-text"><?=$rs->pt_message?></p>
                 </div>

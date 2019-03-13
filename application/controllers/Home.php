@@ -49,6 +49,7 @@ class Home extends CI_Controller {
         }
          public function message()
         {
+             
              $this->load->view('message_page');
         }
 }

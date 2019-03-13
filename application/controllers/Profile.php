@@ -35,7 +35,7 @@ class Profile extends CI_Controller {
                
                $this->session->set_flashdata("mesaj","Experiences Added");       
                
-                redirect(base_url().'Home');        
+                redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         
         }
         public function experience_edit(){
@@ -53,7 +53,7 @@ class Profile extends CI_Controller {
                 );
                
                $this->Database_Model->update_data("experiences",$data,$this->input->post('id'));
-               redirect(base_url().'Home');        
+              redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
                
         
         }
@@ -72,7 +72,7 @@ class Profile extends CI_Controller {
                 );
                
                 $this->db->insert("educations",$data);
-               redirect(base_url().'Home'); 
+                redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         }
         public function education_edit(){
                
@@ -89,7 +89,7 @@ class Profile extends CI_Controller {
                 );
                
                $this->Database_Model->update_data("educations",$data,$this->input->post('id'));
-               redirect(base_url().'Home'); 
+                redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         }
         public function skill_add(){
                
@@ -106,7 +106,7 @@ class Profile extends CI_Controller {
                 );
                
               $this->db->insert("skills",$data);
-               redirect(base_url().'Home'); 
+                redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         }
         public function goal_add(){
                
@@ -121,7 +121,7 @@ class Profile extends CI_Controller {
                 );
                
                $this->db->insert("goals",$data);
-               redirect(base_url().'Home'); 
+                redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         }
         public function goal_edit(){
                
@@ -136,6 +136,6 @@ class Profile extends CI_Controller {
                 );
                
                $this->Database_Model->update_data("goals",$data,$this->input->post('id'));
-               redirect(base_url().'Home'); 
+                redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         }
 }
