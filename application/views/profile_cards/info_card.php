@@ -28,8 +28,8 @@
                     </div>
                   
                     <?php }else {?>
-                    <button type="button" class="btn btn-primary">Bağlantılara Ekle</button>
-                    <button type="button" class="btn btn-primary">Mesaj Gönder</button>
+                    <button type="button" href="#" data-toggle="modal" data-target="#Relation" class="btn btn-primary">Bağlantılara Ekle</button>
+                    <button type="button"  class="btn btn-primary">Mesaj Gönder</button>
                     <?php } ?>
                     <hr>
                     <p class="card-text"><?=$rs->pt_message?></p>
@@ -38,6 +38,35 @@
            </div>
         </div>
     </div>
+     <!-- Logout Modal-->
+        <div class="modal fade" id="Relation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Arkadaşlık istegi</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">... kişisini bağlantılara eklemek istiyor musunuz</div>
+              <form class="modal-body"  method="post" action="<?= base_url()?>Profile/relation/<?=$rs->id?>">
+                           <input hidden class="form-control" id="Id"  name="Id" value="<?=$rs->id?>" >  
+                             <input hidden class="form-control" id="Firstname"  name="Firstname" value="<?=$rs->first_name?>" >  
+                                  <input hidden class="form-control" id="Lastname"  name="Lastname" value=" <?=$rs->last_name?>" >
+                                       <input hidden class="form-control" id="Status"  name="Status" value="0" >  
+                       
+                                         
+             
+              
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Hayır</button>
+                <button class="btn btn-primary" type="submit" >Evet</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
     
 </div>
 

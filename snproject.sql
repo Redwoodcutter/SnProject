@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 13 Mar 2019, 20:11:32
+-- Üretim Zamanı: 14 Mar 2019, 19:44:17
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -103,11 +103,7 @@ CREATE TABLE IF NOT EXISTS `experiences` (
 INSERT INTO `experiences` (`id`, `user_id`, `title`, `company`, `start_month`, `start_year`, `finish_month`, `finish_year`, `e_location`, `e_city`) VALUES
 (53, '2', 'Junior Developper', 'Cevdet Company', 'july', '2005', 'november', '2010', 'Ankara', 'Turkey'),
 (54, '2', 'Senior Developper', 'Sen Co', 'November', '2010', 'Agust', '2015', 'Ankara', 'Turkey'),
-(55, '1', 'Senior ', 'Türkçe Yazı Testi', 'Ocak', '2010', 'April', '2007', 'Turkey', 'İstanbul'),
-(57, '1', 'basari ekleme deneme', '12332121', '123', '123', '213', '123', '123', '123'),
-(56, '1', 'Junior Developper', 'Karabük univercity edit deneme', 'September', '2012', 'July', '2020', 'Turkey', 'Karabük'),
-(58, '1', '123', '123', '123', '123', '123', '123', '123', '123'),
-(59, '1', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme', 'deneme');
+(56, '1', 'Junior Developper', 'Karabük univercity edit deneme', 'September', '2012', 'July', '2020', 'Turkey', 'Karabük');
 
 -- --------------------------------------------------------
 
@@ -149,8 +145,18 @@ CREATE TABLE IF NOT EXISTS `relations` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `other_user_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `user_firstname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `user_lastname` varchar(255) COLLATE utf32_turkish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+--
+-- Tablo döküm verisi `relations`
+--
+
+INSERT INTO `relations` (`id`, `user_id`, `other_user_id`, `status`, `user_firstname`, `user_lastname`) VALUES
+(0, 1, 2, 0, 'Bilal', ' Bark'),
+(0, 1, 2, 0, 'Bilal', ' Bark');
 
 -- --------------------------------------------------------
 

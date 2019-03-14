@@ -138,4 +138,26 @@ class Profile extends CI_Controller {
                $this->Database_Model->update_data("goals",$data,$this->input->post('id'));
                 redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         }
+        public function relation($id){
+            
+          $query=$this->db->query("SELECT * FROM users WHERE id=$id");
+          $data["users"]=$query->result();
+          
+           $data=array(
+                'user_id'=>$this->session->Member_session["Id"], // user_id == session id
+                'other_user_id'=>$this->input->post('Id'),
+                'user_firstname'=>$this->input->post('Firstname'),
+                'user_lastname'=>$this->input->post('Lastname'),
+                'status'=>$this->input->post('Status'),
+              
+                );
+           
+          
+            $this->db->insert("relations",$data);
+            
+            
+        }
+        
+        
+        
 }
