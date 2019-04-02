@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 14 Mar 2019, 19:44:17
+-- Üretim Zamanı: 02 Nis 2019, 23:14:24
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -142,21 +142,22 @@ INSERT INTO `goals` (`id`, `user_id`, `title`, `start_month`, `start_year`, `fin
 
 DROP TABLE IF EXISTS `relations`;
 CREATE TABLE IF NOT EXISTS `relations` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `other_user_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `user_firstname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
-  `user_lastname` varchar(255) COLLATE utf32_turkish_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+  `user_lastname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `relations`
 --
 
 INSERT INTO `relations` (`id`, `user_id`, `other_user_id`, `status`, `user_firstname`, `user_lastname`) VALUES
-(0, 1, 2, 0, 'Bilal', ' Bark'),
-(0, 1, 2, 0, 'Bilal', ' Bark');
+(43, 1, 2, 1, 'oguz', 'kumcular'),
+(44, 2, 1, 1, 'Bilal', ' Bark');
 
 -- --------------------------------------------------------
 
@@ -205,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `collage` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `picture` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`,`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `users`
@@ -213,7 +214,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `password`, `job`, `location`, `experiance`, `skill`, `goal`, `e_mail`, `city`, `pt_message`, `collage`, `picture`) VALUES
 (1, 1, 'oguz', 'kumcular', '123', '', '', '', '', '', 'oguzkumcular@gmail.com', '', 'Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text ', '', '02.jpg'),
-(2, 0, 'Bilal', 'Bark', '123', '', '', '', '', '', 'bilalbark@gmail.com', '', '', '', 'artist_103982.jpg');
+(2, 0, 'Bilal', 'Bark', '123', '', '', '', '', '', 'bilalbark@gmail.com', '', '', '', 'artist_103982.jpg'),
+(3, 3, 'cevdet', 'necatigil', '123', '', '', '', '', '', '1@gmail.com', '', 'deneme profil', '', ''),
+(4, 4, 'erdem', 'discord', '123', '', '', '', '', '', '2@gmail.com', '', 'deneme profili 2', '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

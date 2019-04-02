@@ -35,7 +35,7 @@ class Profile extends CI_Controller {
                
                $this->session->set_flashdata("mesaj","Experiences Added");       
                
-                redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
+               redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
         
         }
         public function experience_edit(){
@@ -52,7 +52,7 @@ class Profile extends CI_Controller {
                 'e_city'=>$this->input->post('City')   
                 );
                
-               $this->Database_Model->update_data("experiences",$data,$this->input->post('id'));
+              $this->Database_Model->update_data("experiences",$data,$this->input->post('id'));
               redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);        
                
         
@@ -143,21 +143,48 @@ class Profile extends CI_Controller {
           $query=$this->db->query("SELECT * FROM users WHERE id=$id");
           $data["users"]=$query->result();
           
-           $data=array(
+            $data=array(
                 'user_id'=>$this->session->Member_session["Id"], // user_id == session id
                 'other_user_id'=>$this->input->post('Id'),
-                'user_firstname'=>$this->input->post('Firstname'),
-                'user_lastname'=>$this->input->post('Lastname'),
+                'user_firstname'=>$this->session->Member_session["username"],
+                'user_lastname'=>$this->session->Member_session["lastname"],
                 'status'=>$this->input->post('Status'),
-              
                 );
            
-          
+            $data1=array(
+                'other_user_id'=>$this->session->Member_session["Id"],
+                'user_id'=>$this->input->post('Id'),
+                'user_firstname'=>$this->input->post('Firstname'),
+                'user_lastname'=>$this->input->post('Lastname'),
+                'status'=>$this->input->post('Status1'),
+                );
+            
             $this->db->insert("relations",$data);
+            $this->db->insert("relations",$data1);
+            redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);
+        }
+        
+        public function relation_edit($id){
+            
+            
+            $data1=array(
+                'status'=>$this->input->post('Status1'),
+                );
+            
+            $this->Database_Model->update_data("relations",$data1,$id);
+            $this->load->view('message_page');
             
             
         }
         
         
-        
+         public function liste($durum)
+	{
+            $query=$this->db->query("SELECT * FROM  WHERE ='$durum'");
+            $data["durum"]=$query->result();
+            
+            $this->load->view("",$data);
+		
+		
+	}
 }

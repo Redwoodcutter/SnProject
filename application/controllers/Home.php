@@ -35,6 +35,11 @@ class Home extends CI_Controller {
              $data["eu_id"]=$query->result(); // eu_id == educations user id
              $query=$this->db->query("SELECT * FROM users WHERE id=$id");
              $data["veriler"]=$query->result();
+           
+             $query=$this->db->query("SELECT * FROM relations WHERE other_user_id=$id");
+             $data["relations"]=$query->result();
+             $query=$this->db->query("SELECT * FROM relations WHERE user_id=$id");
+             $data["relation"]=$query->result();
              
              
              $this->load->view('profile_page',$data);
@@ -51,5 +56,12 @@ class Home extends CI_Controller {
         {
              
              $this->load->view('message_page');
+        }
+        public function connections()
+        {
+             $query=$this->db->query("SELECT * FROM relations WHERE other_user_id=".$this->session->Member_session["Id"]);
+             $data["other_user_id"]=$query->result();
+             
+             $this->load->view('message_page',$data);
         }
 }

@@ -32,6 +32,7 @@ class Login extends CI_Controller {
                         'Id' => $result[0]->id,
                         'email' => $result[0]->email,
                         'username' => $result[0]->first_name,
+                        'lastname' => $result[0]->last_name,
                         'picture' => $result[0]->picture,
                     );
                     //session degiskenine atama

@@ -53,10 +53,8 @@
                            <input hidden class="form-control" id="Id"  name="Id" value="<?=$rs->id?>" >  
                              <input hidden class="form-control" id="Firstname"  name="Firstname" value="<?=$rs->first_name?>" >  
                                   <input hidden class="form-control" id="Lastname"  name="Lastname" value=" <?=$rs->last_name?>" >
-                                       <input hidden class="form-control" id="Status"  name="Status" value="0" >  
-                       
-                                         
-             
+                                       <input hidden class="form-control" id="Status"  name="Status" value="0" >
+                                           <input hidden class="form-control" id="Status1"  name="Status1" value="1" >
               
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Hayır</button>
