@@ -19,19 +19,14 @@
                     <?=$ab->id?><?=$ab->user_firstname?>
                 </h1>
                   
-                    <input hidden class="form-control" id="Status1"  name="Status1" value="1" >  
+                <input hidden class="form-control" id="Status1"  name="Status1" value="1" >  
                                   
-                   <div class="modal-footer">
+              <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Yoksay</button>
                 <button class="btn btn-primary" type="submit" >Kabul Et</button>
               </div>
                 <?php } ?>
-               
                 <?php } ?>
-                   
-                   
-               
-              
               </form>
                      <?php } ?>
                </div>

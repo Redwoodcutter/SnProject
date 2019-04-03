@@ -54,14 +54,14 @@ class Home extends CI_Controller {
         }
          public function message()
         {
-             
-             $this->load->view('message_page');
+             $query=$this->db->query("SELECT * FROM relations WHERE other_user_id=".$this->session->Member_session["Id"]);
+             $data["other_user_id"]=$query->result();
+             $this->load->view('message_page',$data);
         }
         public function connections()
         {
-             $query=$this->db->query("SELECT * FROM relations WHERE other_user_id=".$this->session->Member_session["Id"]);
-             $data["other_user_id"]=$query->result();
+           
              
-             $this->load->view('message_page',$data);
+             $this->load->view('message_page');
         }
 }

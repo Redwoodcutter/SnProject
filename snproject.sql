@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 02 Nis 2019, 23:14:24
+-- Üretim Zamanı: 03 Nis 2019, 11:58:39
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -137,6 +137,28 @@ INSERT INTO `goals` (`id`, `user_id`, `title`, `start_month`, `start_year`, `fin
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `other_user_id` int(11) NOT NULL,
+  `message` longtext COLLATE utf32_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+--
+-- Tablo döküm verisi `messages`
+--
+
+INSERT INTO `messages` (`id`, `user_id`, `other_user_id`, `message`) VALUES
+(1, 1, 1, 'deneme mesajı');
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `relations`
 --
 
@@ -149,13 +171,17 @@ CREATE TABLE IF NOT EXISTS `relations` (
   `user_firstname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `user_lastname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `relations`
 --
 
 INSERT INTO `relations` (`id`, `user_id`, `other_user_id`, `status`, `user_firstname`, `user_lastname`) VALUES
+(47, 4, 1, 1, 'erdem', 'discord'),
+(48, 1, 4, 1, 'oguz', ' kumcular'),
+(46, 1, 3, 1, 'oguz', ' kumcular'),
+(45, 3, 1, 1, 'cevdet', 'necatigil'),
 (43, 1, 2, 1, 'oguz', 'kumcular'),
 (44, 2, 1, 1, 'Bilal', ' Bark');
 
@@ -214,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `password`, `job`, `location`, `experiance`, `skill`, `goal`, `e_mail`, `city`, `pt_message`, `collage`, `picture`) VALUES
 (1, 1, 'oguz', 'kumcular', '123', '', '', '', '', '', 'oguzkumcular@gmail.com', '', 'Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text ', '', '02.jpg'),
-(2, 0, 'Bilal', 'Bark', '123', '', '', '', '', '', 'bilalbark@gmail.com', '', '', '', 'artist_103982.jpg'),
+(2, 2, 'Bilal', 'Bark', '123', '', '', '', '', '', 'bilalbark@gmail.com', '', '', '', 'artist_103982.jpg'),
 (3, 3, 'cevdet', 'necatigil', '123', '', '', '', '', '', '1@gmail.com', '', 'deneme profil', '', ''),
 (4, 4, 'erdem', 'discord', '123', '', '', '', '', '', '2@gmail.com', '', 'deneme profili 2', '', '');
 COMMIT;
