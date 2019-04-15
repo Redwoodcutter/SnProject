@@ -15,7 +15,9 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{        
-		$this->load->view('home_page');
+             $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
+            $data["veriler"]=$query->result();
+		$this->load->view('home_page',$data);
 	}
          public function login_cik()
         { 
@@ -58,10 +60,14 @@ class Home extends CI_Controller {
              $data["other_user_id"]=$query->result();
              $this->load->view('message_page',$data);
         }
-        public function connections()
+        public function connections($id)
         {
-           
+            $query=$this->db->query("SELECT * FROM users WHERE id=$id");
+            $data["veriler"]=$query->result();
+            
+            $query=$this->db->query("SELECT * FROM relations WHERE other_user_id=".$this->session->Member_session["Id"]);
+            $data["other_user_id"]=$query->result();
              
-             $this->load->view('message_page');
+             $this->load->view('social_page',$data);
         }
 }

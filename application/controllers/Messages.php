@@ -12,17 +12,30 @@ class Messages extends CI_Controller {
                     redirect(base_url().'Login/login_ol');
                     
 	}
-        public function message_list($id){
+        public function inderx(){
+             $this->load->view('message_page',$data);
+            
+        }
+
+            public function message_list($id){
             
              $query=$this->db->query("SELECT * FROM relations WHERE other_user_id=".$this->session->Member_session["Id"]);
              $data["other_user_id"]=$query->result();
+             
+             $query=$this->db->query("SELECT * FROM relations WHERE user_id=".$id);
+             $data["Msj_user_id"]=$query->result();
             
              $query=$this->db->query("SELECT * FROM messages WHERE user_id=".$this->session->Member_session['Id']);
              $data["user_id"]=$query->result();
              
+             $query=$this->db->query("SELECT * FROM messages WHERE user_id=$id");
+             $data["ouid"]=$query->result(); //ouid
+             
              $query=$this->db->query("SELECT * FROM messages WHERE other_user_id=$id");
              $data["o_user_id"]=$query->result();
+            
              
+            
             $this->load->view('message_page',$data);
              
         }
@@ -34,10 +47,12 @@ class Messages extends CI_Controller {
                 'user_id'=>$this->session->Member_session["Id"], // user_id == session id
                 'other_user_id'=>$this->input->post('Id'),
                 'message'=>$this->input->post('Message'),
+                'time'=>date('Y-m-d')
                 ); 
             
            
            $this->db->insert("messages",$data);
+           redirect(base_url().'/Messages/message_list/'.$id);  
              
         }
         

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 03 Nis 2019, 11:58:39
+-- Üretim Zamanı: 15 Nis 2019, 08:58:07
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -146,15 +146,37 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `user_id` int(11) NOT NULL,
   `other_user_id` int(11) NOT NULL,
   `message` longtext COLLATE utf32_turkish_ci NOT NULL,
+  `time` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `messages`
 --
 
-INSERT INTO `messages` (`id`, `user_id`, `other_user_id`, `message`) VALUES
-(1, 1, 1, 'deneme mesajı');
+INSERT INTO `messages` (`id`, `user_id`, `other_user_id`, `message`, `time`) VALUES
+(1, 1, 0, 'deneme mesajı', '0000-00-00 00:00:00'),
+(2, 1, 0, 'd eneme mesajı 2', '0000-00-00 00:00:00'),
+(3, 1, 0, 'deneme mesajı 4', '0000-00-00 00:00:00'),
+(4, 1, 2, 'dadsada', '0000-00-00 00:00:00'),
+(5, 1, 2, 'deneme mesajı', '0000-00-00 00:00:00'),
+(6, 1, 2, 'deneME', '0000-00-00 00:00:00'),
+(7, 1, 3, 'erdem deneme mesajı', '0000-00-00 00:00:00'),
+(8, 1, 3, 'yanlış olmuş cevdetmiş.', '0000-00-00 00:00:00'),
+(9, 1, 4, 'ortalık karıştımı acaba', '0000-00-00 00:00:00'),
+(10, 1, 4, 'deneme controller', '0000-00-00 00:00:00'),
+(11, 1, 4, 'deneme controller', '0000-00-00 00:00:00'),
+(12, 1, 4, 'deneme controller', '0000-00-00 00:00:00'),
+(13, 1, 2, 'controller deneme id 2 ', '0000-00-00 00:00:00'),
+(14, 1, 4, 'controller deneme id 4 ', '0000-00-00 00:00:00'),
+(15, 1, 4, 'oguz kumcular', '0000-00-00 00:00:00'),
+(16, 3, 1, 'deneme mesajı başka client ', '0000-00-00 00:00:00'),
+(17, 3, 1, 'deneme mesajı 2', '0000-00-00 00:00:00'),
+(18, 1, 3, 'redirect kontrol', '0000-00-00 00:00:00'),
+(19, 1, 4, 'redirect deneme', '0000-00-00 00:00:00'),
+(20, 1, 4, 'redirect deneme 2 ', '0000-00-00 00:00:00'),
+(21, 1, 3, 'redirect kontrol 5', '0000-00-00 00:00:00'),
+(22, 1, 3, 'zaman denemesi', '2019-04-14 21:00:00');
 
 -- --------------------------------------------------------
 
@@ -171,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `relations` (
   `user_firstname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `user_lastname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `relations`
@@ -207,6 +229,24 @@ CREATE TABLE IF NOT EXISTS `skills` (
 INSERT INTO `skills` (`id`, `user_id`, `skill`, `rating`) VALUES
 (65, 1, 'C language', '4'),
 (52, 1, 'Php', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `timeline`
+--
+
+DROP TABLE IF EXISTS `timeline`;
+CREATE TABLE IF NOT EXISTS `timeline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `mesaj` text COLLATE utf32_turkish_ci NOT NULL,
+  `begeni` int(11) NOT NULL,
+  `resim` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 -- --------------------------------------------------------
 
