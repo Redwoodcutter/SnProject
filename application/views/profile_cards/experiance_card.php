@@ -43,8 +43,6 @@
                 </div>
                     <?php $this->load->view('form_pages/exp_add_form') ?>
                 <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
               </div>
             </div>

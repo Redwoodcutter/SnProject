@@ -15,9 +15,9 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{        
-             $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
+            $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
             $data["veriler"]=$query->result();
-		$this->load->view('home_page',$data);
+            $this->load->view('home_page',$data);
 	}
          public function login_cik()
         { 

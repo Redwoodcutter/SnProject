@@ -19,5 +19,20 @@ class Home extends CI_Controller {
             $data["veriler"]=$query->result();
             $this->load->view('home_page',$data);
 	}
+        public function text_send(){
+            
+            $data=array(
+                'user_id'=>$this->session->Member_session["Id"], // user_id == session id
+                'mesaj'=>$this->input->post('Message'),
+                'begeni'=>$this->input->post('Like'),
+                'time'=>date('Y-m-d'),
+                'resim'=>$this->input->post('Picture')
+                ); 
+            
+           
+           $this->db->insert("timeline",$data);
+           redirect(base_url().'/Home');  
+             
+        }
         
 }
