@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 15 Nis 2019, 08:58:07
+-- Üretim Zamanı: 17 Nis 2019, 11:47:10
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `experiences` (
 INSERT INTO `experiences` (`id`, `user_id`, `title`, `company`, `start_month`, `start_year`, `finish_month`, `finish_year`, `e_location`, `e_city`) VALUES
 (53, '2', 'Junior Developper', 'Cevdet Company', 'july', '2005', 'november', '2010', 'Ankara', 'Turkey'),
 (54, '2', 'Senior Developper', 'Sen Co', 'November', '2010', 'Agust', '2015', 'Ankara', 'Turkey'),
-(56, '1', 'Junior Developper', 'Karabük univercity edit deneme', 'September', '2012', 'July', '2020', 'Turkey', 'Karabük');
+(56, '1', 'Junior Developper', 'Karabük univercity edit deneme', 'September', '2012', 'July', '2020', 'Turkey', 'Karabük1');
 
 -- --------------------------------------------------------
 
@@ -147,36 +147,18 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `other_user_id` int(11) NOT NULL,
   `message` longtext COLLATE utf32_turkish_ci NOT NULL,
   `time` timestamp NOT NULL,
+  `sender_name` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `receiver_name` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `messages`
 --
 
-INSERT INTO `messages` (`id`, `user_id`, `other_user_id`, `message`, `time`) VALUES
-(1, 1, 0, 'deneme mesajı', '0000-00-00 00:00:00'),
-(2, 1, 0, 'd eneme mesajı 2', '0000-00-00 00:00:00'),
-(3, 1, 0, 'deneme mesajı 4', '0000-00-00 00:00:00'),
-(4, 1, 2, 'dadsada', '0000-00-00 00:00:00'),
-(5, 1, 2, 'deneme mesajı', '0000-00-00 00:00:00'),
-(6, 1, 2, 'deneME', '0000-00-00 00:00:00'),
-(7, 1, 3, 'erdem deneme mesajı', '0000-00-00 00:00:00'),
-(8, 1, 3, 'yanlış olmuş cevdetmiş.', '0000-00-00 00:00:00'),
-(9, 1, 4, 'ortalık karıştımı acaba', '0000-00-00 00:00:00'),
-(10, 1, 4, 'deneme controller', '0000-00-00 00:00:00'),
-(11, 1, 4, 'deneme controller', '0000-00-00 00:00:00'),
-(12, 1, 4, 'deneme controller', '0000-00-00 00:00:00'),
-(13, 1, 2, 'controller deneme id 2 ', '0000-00-00 00:00:00'),
-(14, 1, 4, 'controller deneme id 4 ', '0000-00-00 00:00:00'),
-(15, 1, 4, 'oguz kumcular', '0000-00-00 00:00:00'),
-(16, 3, 1, 'deneme mesajı başka client ', '0000-00-00 00:00:00'),
-(17, 3, 1, 'deneme mesajı 2', '0000-00-00 00:00:00'),
-(18, 1, 3, 'redirect kontrol', '0000-00-00 00:00:00'),
-(19, 1, 4, 'redirect deneme', '0000-00-00 00:00:00'),
-(20, 1, 4, 'redirect deneme 2 ', '0000-00-00 00:00:00'),
-(21, 1, 3, 'redirect kontrol 5', '0000-00-00 00:00:00'),
-(22, 1, 3, 'zaman denemesi', '2019-04-14 21:00:00');
+INSERT INTO `messages` (`id`, `user_id`, `other_user_id`, `message`, `time`, `sender_name`, `receiver_name`) VALUES
+(33, 1, 2, 'deneme mesajı', '2019-04-14 21:00:00', '', ''),
+(32, 1, 4, 'deneme mesajı 2', '2019-04-14 21:00:00', '', '');
 
 -- --------------------------------------------------------
 
@@ -203,9 +185,9 @@ INSERT INTO `relations` (`id`, `user_id`, `other_user_id`, `status`, `user_first
 (47, 4, 1, 1, 'erdem', 'discord'),
 (48, 1, 4, 1, 'oguz', ' kumcular'),
 (46, 1, 3, 1, 'oguz', ' kumcular'),
-(45, 3, 1, 1, 'cevdet', 'necatigil'),
+(45, 3, 1, 0, 'cevdet', 'necatigil'),
 (43, 1, 2, 1, 'oguz', 'kumcular'),
-(44, 2, 1, 1, 'Bilal', ' Bark');
+(44, 2, 1, 0, 'Bilal', ' Bark');
 
 -- --------------------------------------------------------
 
@@ -244,9 +226,21 @@ CREATE TABLE IF NOT EXISTS `timeline` (
   `mesaj` text COLLATE utf32_turkish_ci NOT NULL,
   `begeni` int(11) NOT NULL,
   `resim` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
-  `time` int(11) NOT NULL,
+  `time` timestamp NOT NULL,
+  `documan` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `video` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+
+--
+-- Tablo döküm verisi `timeline`
+--
+
+INSERT INTO `timeline` (`id`, `status`, `user_id`, `mesaj`, `begeni`, `resim`, `time`, `documan`, `video`) VALUES
+(2, 1, 1, 'birinci timeline gönderisi', 0, '', '0000-00-00 00:00:00', '', ''),
+(3, 1, 4, 'ikinci time line yazısı burdadır', 0, '', '2019-04-14 21:00:00', '', ''),
+(4, 1, 1, 'üçüncü timeline yazısı burdadır', 0, '', '0000-00-00 00:00:00', '', ''),
+(5, 0, 1, 'dördüncü time line gönderisi', 0, '', '0000-00-00 00:00:00', '', '');
 
 -- --------------------------------------------------------
 

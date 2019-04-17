@@ -13,7 +13,6 @@
           <?php foreach ($other_user_id as $uid){?>
             <li class="list-group-item" >
                 <a href="<?=base_url()?>Messages/message_list/<?=$uid->user_id?>"><?=$uid->user_firstname?><?=$uid->user_lastname?></a>
-         
             </li> 
           <?php } ?>
         </ul>
@@ -39,6 +38,19 @@
                 </hr5>
                 <br>      
                 <?php } ?>
+                
+                <?php foreach($user_id as $msg ){?>
+                <?php if($this->session->Member_session['Id']== $msg->user_id ){ ?>
+                <div class="card">
+                    <h5 class="card-header"> <?=$msg->sender_name?></h5>
+                    <div class="card-body">
+                      <p class="card-text">  <?=$msg->message?></p>
+                    </div>
+                </div>
+                
+                <?php } ?>
+                <?php } ?>
+                
             </div>
             
             <form  class="modal-body"  method="post" action="<?=base_url()?>Messages/message_send/<?=$uid->user_id?>">

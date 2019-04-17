@@ -33,8 +33,9 @@ class Messages extends CI_Controller {
              
              $query=$this->db->query("SELECT * FROM messages WHERE other_user_id=$id");
              $data["o_user_id"]=$query->result();
-            
              
+             $query=$this->db->query("SELECT * FROM messages");
+             $data["Messages"]=$query->result();
             
             $this->load->view('message_page',$data);
              
@@ -49,8 +50,6 @@ class Messages extends CI_Controller {
                 'message'=>$this->input->post('Message'),
                 'time'=>date('Y-m-d')
                 ); 
-            
-           
            $this->db->insert("messages",$data);
            redirect(base_url().'/Messages/message_list/'.$id);  
              
