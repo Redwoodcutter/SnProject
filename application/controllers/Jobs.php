@@ -93,9 +93,18 @@ class Jobs extends CI_Controller {
                 }
         }
          public function job_picture_status(){
-            
-            $this->load->view('jobs_share');
+            $query=$this->db->query("SELECT * FROM jobs WHERE sender_id=".$this->session->Member_session['Id']." ORDER BY id DESC LIMIT 1");
+            $data["veriler"]=$query->result();
+            $this->load->view('jobs_share',$data);
         }
+         public function job_picture_status_save($id){
+             $data=array(
+                'status'=> $this->input->post('Status')
+                ); 
+             $this->Database_Model->update_data("jobs",$data,$id);
+              redirect(base_url().'Home');
+        }
+        
         
         
             
