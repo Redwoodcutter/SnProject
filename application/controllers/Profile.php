@@ -187,4 +187,19 @@ class Profile extends CI_Controller {
 		
 		
 	}
+         public function job_add(){
+            
+            $data=array(
+                'user_id'=>$this->session->Member_session["Id"], // user_id == session id
+                'name'=>$this->input->post('Name'),
+                'location'=>$this->input->post('Like'),
+                'city'=>$this->input->post('Like'),
+                'long_text'=>$this->input->post('Like'),
+                'time'=>date('d-m-Y'),
+                ); 
+            
+           $this->db->insert("timeline",$data);
+           redirect(base_url().'/Home');  
+             
+        }
 }

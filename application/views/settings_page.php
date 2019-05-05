@@ -8,7 +8,7 @@
            <div class="col-lg-6">
             
             <form method="post" action="<?=base_url()?>Settings/picture/<?=$veri[0]->id?>">
-                <img src="<?=base_url()?>upload/<?=$veri[0]->picture?>"" class="rounded-circle" alt="Cinque Terre" style="height: 150px; width: 150px; margin-left: 50px; margin-top: 25px;">
+                <img src="<?=base_url()?>upload/<?=$veri[0]->picture?>" class="rounded-circle" alt="Cinque Terre" style="height: 150px; width: 150px; margin-left: 50px; margin-top: 25px;">
               
                 <button type="submit" class="btn btn-primary">Resim Ekle</button>
             </form>

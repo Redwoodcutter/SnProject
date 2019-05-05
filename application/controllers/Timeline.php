@@ -25,7 +25,7 @@ class Timeline extends CI_Controller {
                 'user_id'=>$this->session->Member_session["Id"], // user_id == session id
                 'mesaj'=>$this->input->post('Message'),
                 'begeni'=>$this->input->post('Like'),
-                'time'=>date('d-m-Y'),
+                'username'=> $this->input->post('Username'),
                 ); 
             
            $this->db->insert("timeline",$data);

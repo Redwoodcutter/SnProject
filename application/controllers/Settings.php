@@ -67,7 +67,7 @@ class Settings extends CI_Controller {
                 {
                         $upload_data = $this->upload->data();
                         $data=array(
-                          'Picture'=>$upload_data["file_name"]  
+                          'picture'=>$upload_data["file_name"]  
                         );
                         $this->load->model('Database_Model');
                         $this->Database_Model->update_data("users",$data,$id);

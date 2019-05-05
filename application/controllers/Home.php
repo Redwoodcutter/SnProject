@@ -19,17 +19,18 @@ class Home extends CI_Controller {
             $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
             $data["veriler"]=$query->result();
             
-            $query=$this->db->query("SELECT * FROM relations WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 2");
+            $query=$this->db->query("SELECT * FROM relations WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 5");
             $data["timeline_relations"]=$query->result();
             
-            $query=$this->db->query("SELECT * FROM timeline WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 3");
+            $query=$this->db->query("SELECT * FROM timeline WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 10");
             $data["timeline_post"]=$query->result();
             
             $query=$this->db->query("SELECT * FROM relations WHERE status='0' ORDER BY RAND() LIMIT 2");
             $data["guess"]=$query->result();
             
+         
             
-            $this->load->view('home_page',$data);
+            $this->load->view('home_page_review',$data);
 	}
          public function login_cik()
         { 
@@ -98,11 +99,11 @@ class Home extends CI_Controller {
              <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                  <tr>
-                  <th>Customer Name</th>
-                  <th>Address</th>
-                  <th>City</th>
-                  <th>Postal Code</th>
-                  <th>Country</th>
+                  <th>id</th>
+                  <th>user_id</th>
+                  <th>first_name</th>
+                  <th>last_name</th>
+                  <th>e mail</th>
                  </tr>
              ';
              if($data->num_rows() > 0)
