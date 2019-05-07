@@ -30,6 +30,11 @@ class Database_model extends CI_Model {
                 $this->db->update($tablo,$data);
                 return true;
             }
+              public function insert($tablo,$data){
+                $this->db->insert($data);
+                return true;
+            }
+            
 }
 
 ?>

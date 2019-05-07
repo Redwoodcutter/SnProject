@@ -9,6 +9,13 @@
 
     <div class="row">
         <div class="col-md-3">
+             <?php if($this->session->flashdata("mesaj")) { ?>
+                     <div class="alert alert-info">
+                         <a href="#" class="alert-danger">Hata</a>
+                         <br>
+                            <?=$this->session->flashdata("mesaj");?> 
+                        </div>
+                    <?php } ?>
 
         <!-- Search Widget -->
         <div class="card my-4">
@@ -89,7 +96,7 @@
                 <div class="card-body">
                   <a href="#" data-toggle="modal" data-target="#PostAdd" class=" btn">Bir Gönderi başlat</a>
                   <a href="#" data-toggle="modal" data-target="#PostAdd" class="btn btn-primary">Yazı</a>
-                  <a href="#" data-toggle="modal" data-target="#PictureAdd" class="btn btn-primary">Resim</a>
+                  <a href="#" data-toggle="modal" data-target="#PictureAddTimeline" class="btn btn-primary">Resim</a>
                   <a href="#" data-toggle="modal" data-target="#VideoAdd" class="btn btn-primary">video</a>
                   <a href="#" data-toggle="modal" data-target="#Documents" class="btn btn-primary">dokuman</a>
                 </div>
@@ -100,6 +107,7 @@
 
           <?php foreach($timeline_relations as $tr){ if($tr->status=='1')?>
             <?php foreach ($timeline_post as $tp){ ?>
+            <?php if($tp->picture =='0'){ ?>
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?> <p><?=$tp->time?></h6>
           </div>
@@ -108,6 +116,17 @@
             </div>
             <p><?=$tp->mesaj?> 
           </div>
+         <?php }else{ ?>
+         <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?> <p><?=$tp->time?></h6>
+          </div>
+          <div class="card-body">
+            <div class="text-center">
+                <img class="card-img-top" src="<?=base_url()?>upload/<?=$tp->picture?>" alt="Card image cap" style="height: 10rem;">
+            </div>
+            <p>
+          </div>
+        <?php  } ?>
              <?php } ?>
              <?php } ?>
         <hr>
@@ -175,7 +194,7 @@
 
   </div>
   <!-- /.container -->
-
+<!-- Text Post Modal Begin  -->
     <form class="modal-body" method="post" action="<?=base_url()?>Timeline/text_send" >
           <div class="modal fade" id="PostAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -193,9 +212,7 @@
                     <textarea class="form-control" id="Message" name="Message" aria-label="With textarea"></textarea>
                     <input  hidden type="text" class="form-control" id="Like" placeholder="Like" name="Like" value="0" >
                     <input  hidden type="text" class="form-control" id="Username" placeholder="Username" name="Username" value="<?=$this->session->Member_session["username"];echo ' ';?><?=$this->session->Member_session["lastname"]?>" >    
-                    <section  hidden type="text" class="form-control" id="Tag" placeholder="Tag" name="Tag">   
-                        deneme
-                    </section>
+                  
                         
                 </div>
                 <div class="modal-footer">
@@ -206,30 +223,25 @@
             </div>
           </div>
         </form>
-   <form method="post" action="<?=base_url()?>Settings/picture/<?=$veriler[0]->id?>">
-        <div class="modal fade" id="PictureAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Text Post Modal End  -->
+  <!-- Picture Modal Begin  -->
+     
+        <div class="modal fade" id="PictureAddTimeline" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                <img src="<?=base_url()?>upload/<?=$veriler[0]->picture?>" class="rounded-circle" alt="Cinque Terre" style="height: 150px; width: 150px; margin-left: 50px; margin-top: 25px;">
-                <button type="submit" class="btn btn-primary">Resim Ekle</button>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-                </div>
-                 <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon3">Resim Ekle</span>
-                    </div>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-                 </div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+                 <h1 class="page-header">Bir Resim Seçin</h1>
+              <form action="<?=base_url()?>Timeline/do_upload" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                            <label for="exampleInputEmail1">Resim Ekle</label>
+                            <input type="file" class="form-control" id="picture" required name="Picture"  >
+                          </div>
+                          <button type="submit" class="btn btn-primary">Resimi Kaydet</button>
+                        </form>
               </div>
             </div>
-          </div>
+        </div> 
+    
+  <!-- Picture Modal End  -->
          <div class="modal fade" id="VideoAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">

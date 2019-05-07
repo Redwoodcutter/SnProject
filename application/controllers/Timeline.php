@@ -6,6 +6,7 @@ class Timeline extends CI_Controller {
 	public function __construct()
 	{
 		parent :: __construct();
+                    
                     $this->load->model('Database_Model');
                     $this->load->helper('url');
                     if(!$this->session->userdata("Member_session"))
@@ -31,6 +32,33 @@ class Timeline extends CI_Controller {
            $this->db->insert("timeline",$data);
            redirect(base_url().'/Home');  
              
+        }
+       public function do_upload(){
+                $config['upload_path']          = './upload/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 3000;
+                $config['max_width']            = 3024;
+                $config['max_height']           = 3024;
+
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('Picture'))
+                {
+                        //uyarı mesajı ekle html kısmında.
+                        $error = $this->upload->display_errors();
+                        $this->session->set_flashdata("mesaj","Yüklemede Hata oluştu".$error);
+                          redirect(base_url().'home');
+                }
+                else
+                {
+                        $upload_data = $this->upload->data();
+                        $data=array(
+                          'picture'=>$upload_data["file_name"]  
+                        );
+                        $this->db->insert("timeline",$data);
+                        redirect(base_url().'home');
+                        
+                }
         }
         
 }

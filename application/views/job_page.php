@@ -41,60 +41,24 @@
                      
     <div class="col-lg-12">
         
-     <div class="card text-center">
-          <p> <h5>iş aramaları…</h5></p>
-         <div class="card card-group">
-       <div class="card" style="width: 18rem;">
-   <img class="card-img-top" src="../upload/huawei-logo-1.jpeg" alt="Card image cap" style="height: 10rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-     <p class="card-text">City, Location</p>
-    <a href="#" class="btn btn-primary">İlana Git</a>
-  </div>
-        </div>
-           <div class="card">
-   <img class="card-img-top" src="../upload/indir.png" alt="Card image cap" style="height: 10rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-        </div>
-         <div class="card" style="width: 15rem;">
-   <img class="card-img-top" src="../upload/huawei-logo-1.jpeg" alt="Card image cap" style="height: 10rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-        </div>
-         <div class="card" style="">
-   <img class="card-img-top" src="../upload/hyundai-logo-handshake.jpg" alt="Card image cap" style="height: 10rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-        </div>
-         <div class="card" style="width: 15rem;">
-   <img class="card-img-top" src="../upload/akbank_logo.jpg" alt="Card image cap" style="height: 10rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-     <p class="card-text">City, Location</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-        </div>
-     </div>
-   </div>          
+    <div class="card text-center">
+        <p> <h5>iş aramaları…</h5></p>
+       
+        <div class="card card-group">
+         <?php foreach($jobs as $j){ ?>
+         <div class="card" style="width: 18rem;">
+         <img class="card-img-top" src="<?=base_url()?>upload/<?=$j->picture?>" alt="Card image cap" style="height: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title"><?=$j->title?></h5>
+              <p class="card-text"><?=$j->company?></p>
+               <p class="card-text"><?=$j->city?> <?=$j->country?></p>
+              <a href="#" class="btn btn-primary">İlana Git</a>
+            </div>
+         </div>
+         <?php } ?>
+           </div>
+    </div>          
     </div>
-        
-                     
-                     
-                     
-                     
-                     
                      
        <!-- AJAX LİVE SEARCH   -->
                      <br />

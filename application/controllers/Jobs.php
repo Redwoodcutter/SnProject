@@ -68,9 +68,9 @@ class Jobs extends CI_Controller {
                  
                 $config['upload_path']          = './upload/';
                 $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 300;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 1024;
+                $config['max_size']             = 3000;
+                $config['max_width']            = 3024;
+                $config['max_height']           = 3024;
 
                 $this->load->library('upload', $config);
 
@@ -79,7 +79,7 @@ class Jobs extends CI_Controller {
                         //uyarı mesajı ekle html kısmında.
                         $error = $this->upload->display_errors();
                         $this->session->set_flashdata("mesaj","Yüklemede Hata oluştu".$error);
-                        $this->load->view('job_profile_picture',$data);
+                        $this->load->view('Jobs_picture_add',$data);
                 }
                 else
                 {

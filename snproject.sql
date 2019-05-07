@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 05 May 2019, 23:11:17
+-- Üretim Zamanı: 07 May 2019, 13:57:53
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -157,16 +157,18 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `picture` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `jobs`
 --
 
 INSERT INTO `jobs` (`id`, `sender_id`, `title`, `company`, `city`, `country`, `experiance`, `sector`, `work_time`, `work_status`, `time`, `status_text`, `picture`, `status`) VALUES
-(21, 1, '', '', '', '', '', '', '', '', '2019-05-06 01:51:47', '', 'hyundai-logo-handshake11.jpg', NULL),
-(19, 1, '', '', '', '', '', '', '', '', '2019-05-06 01:24:48', '', '', NULL),
-(20, 1, '', '', '', '', '', '', '', '', '2019-05-06 01:47:03', '', 'hyundai-logo-handshake8.jpg', NULL);
+(25, 1, 'Senior Software Developper', 'Yapı Kredi', 'istanbul', 'Türkiye', 'Senior', 'Bankacılık', 'Tam Zamanlı', 'Finans, yazılım', '2019-05-06 14:42:55', '<p>YapıKredi İnsan Kaynakları Organizasyon ve Y&ouml;netişim Ekibi&#39;nde g&ouml;rev almak &uuml;zere&nbsp;<strong>&quot;İK Organizasyon ve Y&ouml;netişim Uzmanı&quot;</strong>&nbsp;pozisyonunda arayışımız bulunmaktadır.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>&Uuml;niversitelerin İşletme, Sosyal Bilimler veya M&uuml;hendislik b&ouml;l&uuml;mlerinden mezun</li>\r\n	<li>Yazılı ve s&ouml;zl&uuml; iletişim becerileri g&uuml;&ccedil;l&uuml;, ikna kabiliyeti y&uuml;ksek</li>\r\n	<li>Karar verme ve problem &ccedil;&ouml;zme yeteneği gelişmiş</li>\r\n	<li>Analitik ve sonu&ccedil; odaklı yaklaşıma sahip</li>\r\n	<li>Sunum becerisi gelişmiş</li>\r\n	<li>İleri derecede yazılı ve s&ouml;zl&uuml; İngilizce bilgisine sahip</li>\r\n	<li>MS Office programlarını iyi derecede kullanabilen</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>İş Tanımı:</strong></p>\r\n\r\n<ul>\r\n	<li>Banka ve İştiraklerinin organizasyon yapılarına ilişkin genel analizleri ger&ccedil;ekleştirmek</li>\r\n	<li>Strateji ve ihtiya&ccedil;lar doğrultusunda, t&uuml;m birimlerle ilgili organizasyonel d&uuml;zenleme ve değişiklik taleplerini analiz etmek, y&ouml;netimin kararlarına y&ouml;n verecek &ccedil;alışma ve sunumları hazırlamak</li>\r\n	<li>Organizasyon yapısını etkileyen projelerde g&ouml;rev almak</li>\r\n	<li>Pozisyon iş değerleme &ccedil;alışmalarını y&uuml;r&uuml;tmek</li>\r\n	<li>Bankanın verimliliğini artıracak organizasyon yapılanmalarına ilişkin &ouml;neriler geliştirmek</li>\r\n	<li>Bankanın organizasyon şemalarında periyodik g&uuml;ncellemeleri ger&ccedil;ekleştirmek</li>\r\n	<li>Onaylanmış organizasyon şemalarını dikkate alarak ilgili y&ouml;netimlerle işbirliği i&ccedil;inde g&ouml;rev tanımlarını oluşturmak ve/veya g&uuml;ncellemek</li>\r\n	<li>Bankanın organizasyon yapısıyla ilgili yasal otoritelerden gelen soru ve talepleri karşılamak</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><em>&ldquo;6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerinizin işlenmesinden doğan haklarınıza ve bu konudaki detaylı bilgiye&nbsp;</em>https://kariyerim.yapikredi.com.tr/Account/StaticKvkk<em>&nbsp;&nbsp;adresinde yer alan aydınlatma metnimizden ulaşabilirsiniz.&rdquo;</em></p>\r\n', 'hyundai-logo-handshake.jpg', 1),
+(30, 1, 'sadasd', 'adsad', 'adsad', 'sadsa', 'sad', 'dsadsa', 'adasd', 'dasdad', '2019-05-06 17:03:53', '<p>sadasdas</p>\r\n', 'hyundai-logo-handshake1.jpg', 1),
+(26, 1, 'Makine Mühendisi', 'Hyundai', 'Kocaeli', 'Türkiye', 'Yeni mezun', 'Otomobil', 'Tam Zamanlı', 'Otomotiv', '2019-05-06 14:45:36', '<p>YapıKredi İnsan Kaynakları Organizasyon ve Y&ouml;netişim Ekibi&#39;nde g&ouml;rev almak &uuml;zere&nbsp;<strong>&quot;İK Organizasyon ve Y&ouml;netişim Uzmanı&quot;</strong>&nbsp;pozisyonunda arayışımız bulunmaktadır.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>&Uuml;niversitelerin İşletme, Sosyal Bilimler veya M&uuml;hendislik b&ouml;l&uuml;mlerinden mezun</li>\r\n	<li>Yazılı ve s&ouml;zl&uuml; iletişim becerileri g&uuml;&ccedil;l&uuml;, ikna kabiliyeti y&uuml;ksek</li>\r\n	<li>Karar verme ve problem &ccedil;&ouml;zme yeteneği gelişmiş</li>\r\n	<li>Analitik ve sonu&ccedil; odaklı yaklaşıma sahip</li>\r\n	<li>Sunum becerisi gelişmiş</li>\r\n	<li>İleri derecede yazılı ve s&ouml;zl&uuml; İngilizce bilgisine sahip</li>\r\n	<li>MS Office programlarını iyi derecede kullanabilen</li>\r\n</ul>\r\n', 'hyundai-logo-handshake.jpg', 1),
+(27, 1, 'İnsan Kaynakları', 'Huwai', 'Karabük', 'Türkiye', 'Yeni mezun', 'Bilişim', 'Tam Zamanlı', 'Teknoloji', '2019-05-06 14:46:58', '<p><strong>İş Tanımı:</strong></p>\r\n\r\n<ul>\r\n	<li>Banka ve İştiraklerinin organizasyon yapılarına ilişkin genel analizleri ger&ccedil;ekleştirmek</li>\r\n	<li>Strateji ve ihtiya&ccedil;lar doğrultusunda, t&uuml;m birimlerle ilgili organizasyonel d&uuml;zenleme ve değişiklik taleplerini analiz etmek, y&ouml;netimin kararlarına y&ouml;n verecek &ccedil;alışma ve sunumları hazırlamak</li>\r\n	<li>Organizasyon yapısını etkileyen projelerde g&ouml;rev almak</li>\r\n	<li>Pozisyon iş değerleme &ccedil;alışmalarını y&uuml;r&uuml;tmek</li>\r\n	<li>Bankanın verimliliğini artıracak organizasyon yapılanmalarına ilişkin &ouml;neriler geliştirmek</li>\r\n	<li>Bankanın organizasyon şemalarında periyodik g&uuml;ncellemeleri ger&ccedil;ekleştirmek</li>\r\n	<li>Onaylanmış organizasyon şemalarını dikkate alarak ilgili y&ouml;netimlerle işbirliği i&ccedil;inde g&ouml;rev tanımlarını oluşturmak ve/veya g&uuml;ncellemek</li>\r\n	<li>Bankanın organizasyon yapısıyla ilgili yasal otoritelerden gelen soru ve talepleri karşılamak</li>\r\n</ul>\r\n', '1.jpg', 1),
+(29, 1, 'aa', 'aaa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aaa', '2019-05-06 17:02:33', '<p>aaa</p>\r\n', 'hyundai-logo-handshake.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -277,21 +279,22 @@ CREATE TABLE IF NOT EXISTS `timeline` (
   `user_id` int(11) NOT NULL,
   `mesaj` text COLLATE utf32_turkish_ci NOT NULL,
   `begeni` int(11) NOT NULL,
-  `resim` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf32_turkish_ci DEFAULT NULL,
   `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `documan` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `video` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `username` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `etiket` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `timeline`
 --
 
-INSERT INTO `timeline` (`id`, `status`, `user_id`, `mesaj`, `begeni`, `resim`, `time`, `documan`, `video`, `username`, `etiket`) VALUES
-(10, 0, 1, 'Deneme Date Time', 0, '', '2019-05-05 19:18:55', '', '', 'oguz kumcular', '');
+INSERT INTO `timeline` (`id`, `status`, `user_id`, `mesaj`, `begeni`, `picture`, `time`, `documan`, `video`, `username`, `etiket`) VALUES
+(10, 0, 1, 'Deneme Date Time', 0, '0', '2019-05-05 19:18:55', '', '', 'oguz kumcular', ''),
+(17, 0, 1, '', 0, 'sahibinden_com_2231.jpg', '2019-05-06 22:21:12', '', '', '', '');
 
 -- --------------------------------------------------------
 

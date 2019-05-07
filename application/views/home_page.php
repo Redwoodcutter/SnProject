@@ -16,7 +16,7 @@
                 <div class="card-body">
                   <p class="card-text">Bir Gönderi başlat</p>
                   <a href="#" data-toggle="modal" data-target="#PostAdd" class="btn btn-primary">Yazı</a>
-                  <a href="#" data-toggle="modal" data-target="#PictureAdd" class="btn btn-primary">Resim</a>
+                  <a href="#" data-toggle="modal" data-target="#PictureAddTimeline" class="btn btn-primary">Resim</a>
                   <a href="#" data-toggle="modal" data-target="#VideoAdd" class="btn btn-primary">video</a>
                   <a href="#" data-toggle="modal" data-target="#Documents" class="btn btn-primary">dokuman</a>
                 </div>
@@ -142,7 +142,9 @@
             </div>
           </div>
         </form>
-        <div class="modal fade" id="PictureAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Picture Add  -->
+        <form>
+        <div class="modal fade" id="PictureAddTimeline" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -164,6 +166,8 @@
               </div>
             </div>
           </div>
+            </form>
+        <!-- Picture End  -->
          <div class="modal fade" id="VideoAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
