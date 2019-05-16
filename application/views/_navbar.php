@@ -5,7 +5,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-primary topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -31,7 +31,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Home" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Anasayfa</span>
+                <span class="mr-2 d-none d-lg-inline  small">Anasayfa</span>
                 <i class="fa fa-home fa"></i>
               </a>
              
@@ -41,7 +41,7 @@
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Home/job" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">İş ilanları</span>
+                <span class="mr-2 d-none d-lg-inline small">İş ilanları</span>
                 <i class="fa fa-home fa"></i>
               </a>
              
@@ -49,7 +49,7 @@
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Messages/message_list/<?=$this->session->Member_session['Id']?>" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mesajlaşma</span>
+                <span class="mr-2 d-none d-lg-inline small">Mesajlaşma</span>
                 <i class="fa fa-home fa"></i>
               </a>
              
@@ -57,7 +57,7 @@
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Home/connections/<?=$this->session->Member_session["Id"]?>" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Bağlantılar</span>
+                <span class="mr-2 d-none d-lg-inline small">Bağlantılar</span>
                 <i class="fa fa-home fa"></i>
               </a>
              
@@ -87,7 +87,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$this->session->Member_session["username"] ?></span>
+                <span class="mr-2 d-none d-lg-inline  small"><?=$this->session->Member_session["username"] ?></span>
                 <img src="<?=base_url()?>upload/<?=$this->session->Member_session["picture"]?>"" class="img-profile rounded-circle" alt="Cinque Terre" style="height: 50px; width: 50px;">
               
               </a>

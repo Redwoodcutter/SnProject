@@ -7,6 +7,7 @@ class Jobs extends CI_Controller {
 	{
 		parent :: __construct();
                     $this->load->model('Database_Model');
+                    $this->load->model('My_model');
                     $this->load->helper('url');
                     if(!$this->session->userdata("Member_session"))
                     redirect(base_url().'Login/login_ol');
@@ -21,12 +22,6 @@ class Jobs extends CI_Controller {
 	}
         
         public function Interesting()
-	{        
-            $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
-            $data["veriler"]=$query->result();
-            $this->load->view('job_add',$data);
-	}
-        public function Search()
 	{        
             $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
             $data["veriler"]=$query->result();
@@ -105,8 +100,32 @@ class Jobs extends CI_Controller {
               redirect(base_url().'Home');
         }
         
+         public function job_view($id){
+             
+            $query=$this->db->query("SELECT * FROM jobs WHERE id=".$id);
+            $data["veriler"]=$query->result();
+            $this->load->view('job_page_view',$data);
+            
+         }
+          public function search($durum){
+             
+            $query=$this->db->query("SELECT * FROM jobs WHERE id=".$id);
+            $data["veriler"]=$query->result();
+            $this->load->view('job_page_view',$data);
+            
+         }
+         
+        function search_keyword(){
+        $keyword = $this->input->post('keyword');
+        $data['results']=$this->My_model->search($keyword);
+        $this->load->view('result_view',$data);
+        }
         
-        
+        function search_keyword_jobs(){
+        $keyword = $this->input->post('keyword');
+        $data['results']=$this->My_model->search_jobs($keyword);
+        $this->load->view('result_view',$data);
+        }
             
         }
            

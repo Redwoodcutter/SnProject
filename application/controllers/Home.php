@@ -19,7 +19,7 @@ class Home extends CI_Controller {
             $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
             $data["veriler"]=$query->result();
             
-            $query=$this->db->query("SELECT * FROM relations WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 5");
+            $query=$this->db->query("SELECT * FROM relations WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 1");
             $data["timeline_relations"]=$query->result();
             
             $query=$this->db->query("SELECT * FROM timeline WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 10");
@@ -27,9 +27,7 @@ class Home extends CI_Controller {
             
             $query=$this->db->query("SELECT * FROM relations WHERE status='0' ORDER BY RAND() LIMIT 2");
             $data["guess"]=$query->result();
-            
-         
-            
+
             $this->load->view('home_page_review',$data);
 	}
          public function login_cik()
@@ -67,7 +65,8 @@ class Home extends CI_Controller {
         {    
             $query=$this->db->query("SELECT * FROM jobs ORDER BY RAND() LIMIT 10");
             $data["jobs"]=$query->result();
-             
+            $query=$this->db->query("SELECT * FROM jobs");
+            $data["Search"]=$query->result();
             $this->load->view('job_page',$data);
         }
          public function message()
@@ -132,5 +131,30 @@ class Home extends CI_Controller {
              }
              $output .= '</table>';
              echo $output;
+        }
+        
+        public function comments($id)
+        {   
+            $query=$this->db->query("SELECT * FROM timeline WHERE id=".$id);
+            $data["veri"]=$query->result();
+            $query=$this->db->query("SELECT * FROM comment WHERE timeline_id=".$id);
+            $data["timeline_id"]=$query->result();
+            
+             
+            $this->load->view('comment_page',$data);
+        } 
+        public function comments_add(){
+             $id = $this->input->post('Id');
+            $data=array(
+                'sender_id'=>$this->session->Member_session["Id"],
+                'timeline_id'=>$this->input->post('Id'),
+                'msg'=>$this->input->post('Msg'),
+                'user_name_f'=>$this->session->Member_session["username"],
+                'user_name_l'=>$this->session->Member_session["lastname"],
+                'user_pic'=>$this->session->Member_session["picture"]
+                ); 
+            
+           $this->db->insert("comment",$data);
+           redirect(base_url().'Home/comments/'.$id);    
         }
 }

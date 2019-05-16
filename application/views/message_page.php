@@ -24,7 +24,7 @@
             
         <div class=" col-lg-9">
             <div class="jumbotron" style="height: 400px; overflow-y: scroll;">
-                <?php foreach ($o_user_id as $ui ){?>
+              <?php foreach ($o_user_id as $ui ){?>
                 <hr5 style="background-color: white; float:right;">
                 <?=$ui->message?>
                 </hr5>
@@ -37,19 +37,8 @@
                 <?=$ui->message?>
                 </hr5>
                 <br>      
-                <?php } ?>
-                
-                <?php foreach($user_id as $msg ){?>
-                <?php if($this->session->Member_session['Id']== $msg->user_id ){ ?>
-                <div class="card">
-                    <h5 class="card-header"> <?=$msg->sender_name?></h5>
-                    <div class="card-body">
-                      <p class="card-text">  <?=$msg->message?></p>
-                    </div>
-                </div>
-                
-                <?php } ?>
-                <?php } ?>
+                <?php } ?> 
+              
                 
             </div>
             

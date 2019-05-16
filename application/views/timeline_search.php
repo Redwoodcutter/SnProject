@@ -19,7 +19,7 @@
 
         <!-- Search Widget -->
         <div class="card my-4">
-             <div class="card text-white bg-primary mb-3">
+             <div class="card">
         <?php foreach($veriler as $rs) {?>
         <div class="container">
          <div class="row">
@@ -31,9 +31,9 @@
                 <p class="card-title"><?=$rs->city;echo ' '; ?><?=$rs->location?></p>
                 <hr>
                 
-                <a href="#" class="text-white">İletişim Ağınızı büyütün</a>
+                <a href="#">İletişim Ağınızı büyütün</a>
                 <hr>
-                <a href="#" class="text-white">Kaç kişi profilinizi görüntüledi</a>
+                <a href="#">Kaç kişi profilinizi görüntüledi</a>
                 
            </div>
            </div>
@@ -44,17 +44,34 @@
         </div>
 
         <!-- Categories Widget -->
-        <div class="card border-primary mb-3">
-            <div class="card-header">Akışınıza Ekleyin</div>
-            <div class="card-body text-primary">
+        <div class="card my-4">
+          <h5 class="card-header">En Yeni</h5>
+          <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
-                  <?php foreach ($timeline_post as $tp){ ?>
                   <li>
-                    <a href="#">#<?=$tp->etiket?></a>
+                    <a href="#">#WebDesign</a>
                   </li>
-                  <?php } ?>
+                  <li>
+                    <a href="#">#HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">#Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">#JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">#CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">#Tutorials</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -62,20 +79,20 @@
         </div>
 
         <!-- Side Widget -->
-        <div class="card border-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Gruplar</div>
-            <div class="card-body text-primary">
-              <h5 class="card-title">Üye olunan gruplar gelicek</h5>
-              <p class="card-text">Üye olunan gruplar gelicek</p>
-            </div>
-      </div>
+        <div class="card my-4">
+          <h5 class="card-header">Gruplar</h5>
+          <div class="card-body">
+            Üye olunan gruplar gelicek
+          </div>
         </div>
+
+      </div>
 
       <!-- Post Content Column -->
       <div class="col-lg-6">
           
             <h1 class="h3 mb-0 text-gray-800"></h1>
-            <div class="card text-center border-primary">
+            <div class="card text-center">
                 <div class="card-body">
                   <a href="#" data-toggle="modal" data-target="#PostAdd" class=" btn">Bir Gönderi başlat</a>
                   <a href="#" data-toggle="modal" data-target="#PostAdd" class="btn btn-primary">Yazı</a>
@@ -85,55 +102,48 @@
                 </div>
             </div>
         <!-- Date/Time -->
+       
         <hr>
+
           <?php foreach($timeline_relations as $tr){ if($tr->status=='1')?>
             <?php foreach ($timeline_post as $tp){ ?>
             <?php if($tp->picture =='0'){ ?>
-        <div class="card border-primary ">
           <div class="card-header py-3">
-              <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?></h6></a>
+            <h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?> <p><?=$tp->time?></h6>
           </div>
           <div class="card-body">
             <div class="text-center">
             </div>
             <p><?=$tp->mesaj?> 
           </div>
-          <footer>
-                <a href="<?=base_url()?>Home/comments/<?=$tp->id?>"><p  class="text-center">Daha fazlasını görmek için tıklayın</p></a>
-          </footer>
-         </div>
-        <hr>
          <?php }else{ ?>
-           <div class="card border-primary">
          <div class="card-header py-3">
-             <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?></h6></a>
+            <h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?> <p><?=$tp->time?></h6>
           </div>
           <div class="card-body">
             <div class="text-center">
                 <img class="card-img-top" src="<?=base_url()?>upload/<?=$tp->picture?>" alt="Card image cap" style="height: 10rem;">
+            </div>
+            <p>
           </div>
-          </div>
-            <footer>
-                <a href="<?=base_url()?>Home/comments/<?=$tp->id?>"><p  class="text-center">Daha fazlasını görmek için tıklayın</p></a>
-            </footer>
-           </div>
-              <hr>
         <?php  } ?>
-            
              <?php } ?>
              <?php } ?>
-      
+        <hr>
 
-       
+
+
       </div>
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
         <!-- Categories Widget -->
-        <div class="card border-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Akışınıza Ekleyin</div>
-            <div class="card-body text-primary">
-             <div class="col-lg-12">
+        <div class="card my-4">
+          <h5 class="card-header">Akışınıza Ekleyin</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                  
                 <ul class="list-unstyled mb-0">
                   <li>
                     <a href="#">Web Design</a>
@@ -145,8 +155,10 @@
                     <a href="#">Freebies</a>
                   </li>
                 </ul>
+                  
               </div>
             </div>
+          </div>
         </div>
 
         <!-- Side Widget -->
@@ -199,14 +211,8 @@
                     </div>
                     <textarea class="form-control" id="Message" name="Message" aria-label="With textarea"></textarea>
                     <input  hidden type="text" class="form-control" id="Like" placeholder="Like" name="Like" value="0" >
-                    <input  hidden type="text" class="form-control" id="picture" placeholder="Like" name="picture" value="0" >
                     <input  hidden type="text" class="form-control" id="Username" placeholder="Username" name="Username" value="<?=$this->session->Member_session["username"];echo ' ';?><?=$this->session->Member_session["lastname"]?>" >    
-                    <select name="tag">
-                            <option value="Web">Web</option>
-                            <option value="Css">Css</option>
-                            <option value="HTML">HTML</option>
-                            <option value="JavaScript">JavaScript</option>
-                   </select>
+                  
                         
                 </div>
                 <div class="modal-footer">
@@ -230,14 +236,7 @@
                             <input type="file" class="form-control" id="picture" required name="Picture"  >
                             <input  hidden type="text" class="form-control" id="Like" placeholder="Like" name="Like" value="0" >
                             <input  hidden type="text" class="form-control" id="Username" placeholder="Username" name="Username" value="<?=$this->session->Member_session["username"];echo ' ';?><?=$this->session->Member_session["lastname"]?>" > 
-                          <select name="tag">
-                            <option value="Web">Web</option>
-                            <option value="Css">Css</option>
-                            <option value="HTML">HTML</option>
-                            <option value="JavaScript">JavaScript</option>
-                          </select>
-                                
-                                </div>
+                          </div>
                           <button type="submit" class="btn btn-primary">Resimi Kaydet</button>
                         </form>
               </div>

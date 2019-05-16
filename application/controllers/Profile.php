@@ -148,7 +148,7 @@ class Profile extends CI_Controller {
                 'other_user_id'=>$this->input->post('Id'),
                 'user_firstname'=>$this->session->Member_session["username"],
                 'user_lastname'=>$this->session->Member_session["lastname"],
-                'status'=>$this->input->post('Status'),
+                'status'=>$this->input->post('Status1'),
                 );
            
             $data1=array(
@@ -156,7 +156,7 @@ class Profile extends CI_Controller {
                 'user_id'=>$this->input->post('Id'),
                 'user_firstname'=>$this->input->post('Firstname'),
                 'user_lastname'=>$this->input->post('Lastname'),
-                'status'=>$this->input->post('Status1'),
+                'status'=>$this->input->post('Status'),
                 );
             
             $this->db->insert("relations",$data);

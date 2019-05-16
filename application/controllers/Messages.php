@@ -12,7 +12,7 @@ class Messages extends CI_Controller {
                     redirect(base_url().'Login/login_ol');
                     
 	}
-        public function inderx(){
+        public function index(){
              $this->load->view('message_page',$data);
             
         }

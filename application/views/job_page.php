@@ -9,9 +9,8 @@
             <div class="card text">
              <div class="card-body">
                <a href="<?=base_url()?>Jobs/Saved" class="btn ">İş ilanlarımı takip et</a>
-               <a href="<?=base_url()?>Jobs/Interesting" class="btn ">Kariyer ilgileri</a>
-               <a href="<?=base_url()?>Jobs/Add" class="btn " style="float: right;">İş ilanı yayınla</a>
-               <a href="<?=base_url()?>Jobs/Search" class="btn " style="float: right;">Yetenekli Kişiler mi ariyorsun?</a>
+               <button class="btn btn-warning" style="float: right;"><a href="<?=base_url()?>Jobs/Add" class="btn " style="float: right;">İş ilanı yayınla</a></button>
+               <p href="<?=base_url()?>Jobs/Search" class="btn " style="float: right;">Yetenekli Kişiler mi ariyorsun?</p>
              </div>
             </div>
        </div>
@@ -22,14 +21,18 @@
                 <div class="card-body">
                     <div class="form-group">
                         <div class="input-group">
-                                <input type="text" name="" id="" placeholder="İlanlarda Ara" class="form-control" />
-                               <button class="btn btn-primary" type="button">
+                            <form action="<?php echo site_url('jobs/search_keyword_jobs');?>" method = "post">
+                               <input type="text" name="keyword" id="" placeholder="İlanlarda Ara" class="form-control"  />
+                               <button class="btn btn-primary" type="submit">
                                    <i class="fas fa-search fa-sm"></i>
                                </button>
-                                 <input type="text" name="" id="" placeholder="Konum ara" class="form-control" />
-                               <button class="btn btn-primary" type="button">
+                            </form>
+                            <form action="<?php echo site_url('jobs/search_keyword');?>" method = "post">
+                               <input type="text" name="keyword" id="" placeholder="Konum ara" class="form-control" />
+                               <button class="btn btn-primary" type="submit">
                                    <i class="fas fa-search fa-sm"></i>
                                </button>
+                            </form>
                         </div>
                     </div>
                  
@@ -43,22 +46,27 @@
         
     <div class="card text-center">
         <p> <h5>iş aramaları…</h5></p>
-       
-        <div class="card card-group">
+         <div class="row"> 
          <?php foreach($jobs as $j){ ?>
+        <div class="col-lg-3">
+        <div class="card card-group">
          <div class="card" style="width: 18rem;">
          <img class="card-img-top" src="<?=base_url()?>upload/<?=$j->picture?>" alt="Card image cap" style="height: 10rem;">
             <div class="card-body">
               <h5 class="card-title"><?=$j->title?></h5>
               <p class="card-text"><?=$j->company?></p>
                <p class="card-text"><?=$j->city?> <?=$j->country?></p>
-              <a href="#" class="btn btn-primary">İlana Git</a>
+              <a href="<?=base_url()?>Jobs/job_view/<?=$j->id?>"" class="btn btn-primary">İlana Git</a>
             </div>
-         </div>
+            </div>   
+        </div>            
+        </div>
+             
          <?php } ?>
-           </div>
-    </div>          
+          </div>
     </div>
+    </div>
+         
                      
        <!-- AJAX LİVE SEARCH   -->
                      <br />
@@ -125,6 +133,10 @@
             </div>
           </div>
         </form >
+        
+        
+        
+        
                 
         <?php     $this->load->view('_footer'); ?>
 

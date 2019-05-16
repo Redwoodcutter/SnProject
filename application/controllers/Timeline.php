@@ -27,6 +27,8 @@ class Timeline extends CI_Controller {
                 'mesaj'=>$this->input->post('Message'),
                 'begeni'=>$this->input->post('Like'),
                 'username'=> $this->input->post('Username'),
+                'etiket'=>$this->input->post('tag'),
+                'picture'=>$this->input->post('picture')
                 ); 
             
            $this->db->insert("timeline",$data);
@@ -53,7 +55,11 @@ class Timeline extends CI_Controller {
                 {
                         $upload_data = $this->upload->data();
                         $data=array(
-                          'picture'=>$upload_data["file_name"]  
+                          'picture'=>$upload_data["file_name"],
+                            'begeni'=>$this->input->post('Like'),
+                            'username'=> $this->input->post('Username'),
+                            'user_id'=>$this->session->Member_session["Id"],
+                            'etiket'=>$this->input->post('tag')
                         );
                         $this->db->insert("timeline",$data);
                         redirect(base_url().'home');
