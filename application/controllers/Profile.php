@@ -148,19 +148,10 @@ class Profile extends CI_Controller {
                 'other_user_id'=>$this->input->post('Id'),
                 'user_firstname'=>$this->session->Member_session["username"],
                 'user_lastname'=>$this->session->Member_session["lastname"],
-                'status'=>$this->input->post('Status1'),
-                );
-           
-            $data1=array(
-                'other_user_id'=>$this->session->Member_session["Id"],
-                'user_id'=>$this->input->post('Id'),
-                'user_firstname'=>$this->input->post('Firstname'),
-                'user_lastname'=>$this->input->post('Lastname'),
-                'status'=>$this->input->post('Status'),
+                'request'=>$this->input->post('Status1'),
                 );
             
             $this->db->insert("relations",$data);
-            $this->db->insert("relations",$data1);
             redirect(base_url().'Home/profile/'.$this->session->Member_session["Id"]);
         }
         
@@ -168,7 +159,7 @@ class Profile extends CI_Controller {
             
             
             $data1=array(
-                'status'=>$this->input->post('Status1'),
+                'accept'=>$this->input->post('Status1'),
                 );
             
             $this->Database_Model->update_data("relations",$data1,$id);

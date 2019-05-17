@@ -13,10 +13,10 @@
                 <?php if($this->session->Member_session['Id'] == $rs->id){?>
                 <?php foreach($relations as $ab){ ?>
                 <?php 
-                if($ab->status=='0' && $ab->other_user_id==$this->session->Member_session["Id"])  { //rs other user relations user_id?>
-               <form class="modal-body"  method="post" action="<?=base_url()?>Profile/relation_edit/<?=$ab->id?>">
+                if($ab->other_user_id==$this->session->Member_session["Id"] && $ab->request=='1' && $ab->accept=='0')  { //rs other user relations user_id?>
+               <form class="modal-body"  method="post" action="<?=base_url()?>Home/connections/<?=$this->session->Member_session["Id"]?>">
                 <h1>
-                    <?=$ab->id?><?=$ab->user_firstname?>
+                  <?=$ab->user_firstname?> 
                 </h1>
                   
                 <input hidden class="form-control" id="Status1"  name="Status1" value="1" >  

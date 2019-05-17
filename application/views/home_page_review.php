@@ -103,7 +103,7 @@
           </footer>
          </div>
         <hr>
-         <?php }else{ ?>
+         <?php }else if ($tp->picture!='0'){ ?>
            <div class="card border-primary">
          <div class="card-header py-3">
              <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?></h6></a>
@@ -118,13 +118,24 @@
             </footer>
            </div>
               <hr>
-        <?php  } ?>
-            
+        <?php }if ($tp->video!='0' && $tp->picture=='0' && $tp->mesaj==''){ ?>
+               <div class="card border-primary">
+         <div class="card-header py-3">
+             <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?></h6></a>
+          </div>
+          <div class="card-body">
+            <div class="text-center">
+             <iframe width="500" height="450" src="https://www.youtube.com/embed/<?=$tp->video?>"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   </div>
+          </div>
+            <footer>
+                <a href="<?=base_url()?>Home/comments/<?=$tp->id?>"><p  class="text-center">Daha fazlasını görmek için tıklayın</p></a>
+            </footer>
+           </div>
+              <hr>
+                 <?php } ?>
              <?php } ?>
              <?php } ?>
       
-
-       
       </div>
 
       <!-- Sidebar Widgets Column -->
@@ -244,7 +255,7 @@
             </div>
         </div> 
     
-  <!-- Picture Modal End  -->
+  
          <div class="modal fade" id="VideoAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -255,18 +266,25 @@
                   </button>
                 </div>
                  <div class="input-group mb-3">
+                     <form action="<?php echo site_url('Timeline/video_send');?>" method="post" enctype="multipart/form-data">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon3">Link Ekle</span>
                     </div>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-                 </div>
-                <div class="modal-footer">
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="keyword">
+                     <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
+                  <button class="btn btn-primary" type="submit">Yükle</button>
                 </div>
+                     </form>
+                     
+                 </div>
+               
               </div>
             </div>
           </div>
+  
+  <!-- Video Modal End  -->
+  
          <div class="modal fade" id="Documents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">

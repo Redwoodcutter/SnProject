@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 16 May 2019, 14:25:44
+-- Üretim Zamanı: 17 May 2019, 07:15:30
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.2.14
 
@@ -213,19 +213,28 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `user_id` int(11) NOT NULL,
   `other_user_id` int(11) NOT NULL,
   `message` longtext COLLATE utf32_turkish_ci NOT NULL,
-  `time` timestamp NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `sender_name` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `receiver_name` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `messages`
 --
 
 INSERT INTO `messages` (`id`, `user_id`, `other_user_id`, `message`, `time`, `sender_name`, `receiver_name`) VALUES
-(33, 2, 1, 'Gonderen MEsajı', '2019-04-14 21:00:00', '', ''),
-(34, 1, 2, 'Gönderilen 111', '2019-05-08 21:00:00', '', '');
+(42, 1, 3, 'deneme mesajı 2', '2019-05-17 06:19:27', '', ''),
+(41, 1, 2, 'time', '2019-05-17 05:59:43', 'oguz ', ''),
+(37, 2, 1, 'redirect deneme', '2019-05-16 21:00:00', 'bilal', ''),
+(38, 1, 1, 'deneme mesajı', '2019-05-16 21:00:00', 'oguz', ''),
+(39, 1, 2, 'deneme mesajı 2', '2019-05-16 21:00:00', 'oguz', ''),
+(40, 1, 2, 'time', '0000-00-00 00:00:00', 'oguz', ''),
+(35, 2, 1, 'deneme', '2019-05-16 21:00:00', 'bilal', ''),
+(36, 2, 1, 'bilal account', '2019-05-16 21:00:00', 'bilal', ''),
+(33, 2, 1, 'Gonderen MEsajı', '2019-04-14 21:00:00', 'bilal', ''),
+(34, 1, 2, 'Gönderilen 111', '2019-05-08 21:00:00', 'oguz', ''),
+(43, 1, 3, 'deneme mesajı', '2019-05-17 07:14:27', '', '');
 
 -- --------------------------------------------------------
 
@@ -241,18 +250,19 @@ CREATE TABLE IF NOT EXISTS `relations` (
   `status` int(11) NOT NULL,
   `user_firstname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `user_lastname` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
+  `request` int(11) NOT NULL,
+  `accept` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `relations`
 --
 
-INSERT INTO `relations` (`id`, `user_id`, `other_user_id`, `status`, `user_firstname`, `user_lastname`) VALUES
-(56, 3, 1, 1, 'cevdet', ' necatigil'),
-(55, 1, 3, 1, 'oguz', 'kumcular'),
-(54, 2, 1, 1, 'Bilal', ' Bark'),
-(53, 1, 2, 1, 'oguz', 'kumcular');
+INSERT INTO `relations` (`id`, `user_id`, `other_user_id`, `status`, `user_firstname`, `user_lastname`, `request`, `accept`) VALUES
+(61, 2, 1, 0, 'Bilal', 'Bark', 1, 0),
+(62, 3, 1, 0, 'cezmi', 'deneme', 1, 1),
+(60, 1, 2, 0, 'Oguz', 'Kumcular', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -315,18 +325,20 @@ CREATE TABLE IF NOT EXISTS `timeline` (
   `username` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   `etiket` varchar(255) COLLATE utf32_turkish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
 
 --
 -- Tablo döküm verisi `timeline`
 --
 
 INSERT INTO `timeline` (`id`, `status`, `user_id`, `mesaj`, `begeni`, `picture`, `time`, `documan`, `video`, `username`, `etiket`) VALUES
-(10, 0, 1, 'Deneme Date Time', 0, '0', '2019-05-05 19:18:55', '', '', 'oguz kumcular', ''),
-(17, 0, 1, '', 0, 'sahibinden_com_223.jpg', '2019-05-06 22:21:12', '', '', 'ok', 'web'),
-(18, 0, 1, '', 0, 'SWOT.jpg', '2019-05-08 13:14:34', '', '', 'oguz kumcular', 'css'),
-(19, 0, 1, 'deneme tag', 0, '0', '2019-05-08 14:00:02', '', '', 'Bilal Bark', 'HTML'),
-(20, 0, 1, 'Deneme zımbırtılar falanlı böyle write text falan web gelicek taga', 0, '0', '2019-05-08 14:02:16', '', '', 'oguz kumcular', 'Web');
+(10, 0, 1, 'Deneme Date Time', 0, '0', '2019-05-05 19:18:55', '', '0', 'oguz kumcular', 'BigData'),
+(17, 0, 1, '', 0, 'sahibinden_com_223.jpg', '2019-05-06 22:21:12', '', '1', 'ok', 'web'),
+(18, 0, 1, 'deneme tag 2', 0, 'SWOT.jpg', '2019-05-08 13:14:34', '', '0', 'oguz kumcular', 'css'),
+(19, 0, 1, 'deneme tag', 0, '0', '2019-05-08 14:00:02', '', '0', 'Bilal Bark', 'HTML'),
+(20, 0, 1, '', 0, '0', '2019-05-08 14:02:16', '', 'KZscWQdztSw', 'oguz kumcular', 'Web'),
+(23, 0, 1, '', 0, '0', '2019-05-17 10:02:41', '', 'fa2L-A2sS-4', 'oguz kumcular', 'Muzik'),
+(24, 0, 1, '', 0, '0', '2019-05-17 10:03:49', '', 'lJXhxvJBeX0', 'oguz kumcular', 'Muzik');
 
 -- --------------------------------------------------------
 
@@ -359,10 +371,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `last_name`, `password`, `job`, `location`, `experiance`, `skill`, `goal`, `e_mail`, `city`, `pt_message`, `collage`, `picture`) VALUES
-(1, 1, 'oguz', 'kumcular', '123', '', '', '', '', '', 'oguzkumcular@gmail.com', '', 'Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text ', '', '02.jpg'),
+(1, 1, 'Oguz', 'Kumcular', '123', '', '', '', '', '', 'oguzkumcular@gmail.com', '', 'Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text Profil mesajı kismi long tex olarak düzenlenmiştir || this is profil message box its rewrite about to long text ', '', '02.jpg'),
 (2, 2, 'Bilal', 'Bark', '123', '', '', '', '', '', 'bilalbark@gmail.com', '', '', '', 'artist_103982.jpg'),
-(3, 3, 'cevdet', 'necatigil', '123', '', '', '', '', '', '1@gmail.com', '', 'deneme profil', '', ''),
-(4, 4, 'erdem', 'discord', '123', '', '', '', '', '', '2@gmail.com', '', 'deneme profili 2', '', '');
+(3, 3, 'Cevdet', 'Necatigil', '123', '', '', '', '', '', '1@gmail.com', '', 'deneme profil', '', ''),
+(4, 4, 'Erdem', 'Yılmaz', '123', '', '', '', '', '', '2@gmail.com', '', 'deneme profili 2', '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

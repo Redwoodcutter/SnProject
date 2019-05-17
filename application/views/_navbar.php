@@ -42,7 +42,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Home/job" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline small">İş ilanları</span>
-                <i class="fa fa-home fa"></i>
+                <i class="fa fa-list fa"></i>
               </a>
              
             </li>
@@ -50,7 +50,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Messages/message_list/<?=$this->session->Member_session['Id']?>" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline small">Mesajlaşma</span>
-                <i class="fa fa-home fa"></i>
+                <i class="fa fa-pen fa"></i>
               </a>
              
             </li>
@@ -58,7 +58,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Home/connections/<?=$this->session->Member_session["Id"]?>" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline small">Bağlantılar</span>
-                <i class="fa fa-home fa"></i>
+                <i class="fa fa-user fa"></i>
               </a>
              
             </li>

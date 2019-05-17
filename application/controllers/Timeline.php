@@ -66,5 +66,19 @@ class Timeline extends CI_Controller {
                         
                 }
         }
+          public function video_send(){
+              
+            $keyword = $this->input->post('keyword');
+            
+            $keyword = preg_replace("#.*youtube\.com/watch\?v=#", "", $keyword);
+            $data=array(
+                'user_id'=>$this->session->Member_session["Id"], // user_id == session id
+                'video'=>$keyword
+                ); 
+            
+           $this->db->insert("timeline",$data);
+           redirect(base_url().'/Home');  
+             
+        }
         
 }

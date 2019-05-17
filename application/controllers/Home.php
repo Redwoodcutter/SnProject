@@ -19,7 +19,7 @@ class Home extends CI_Controller {
             $query=$this->db->query("SELECT * FROM users WHERE id=".$this->session->Member_session['Id']);
             $data["veriler"]=$query->result();
             
-            $query=$this->db->query("SELECT * FROM relations WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 1");
+            $query=$this->db->query("SELECT * FROM relations WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 5");
             $data["timeline_relations"]=$query->result();
             
             $query=$this->db->query("SELECT * FROM timeline WHERE user_id=".$this->session->Member_session["Id"]." ORDER BY RAND() LIMIT 10");

@@ -24,7 +24,7 @@
             
         <div class=" col-lg-9">
             <div class="jumbotron" style="height: 400px; overflow-y: scroll;">
-              <?php foreach ($o_user_id as $ui ){?>
+             <?php foreach ($o_user_id as $ui ){?>
                 <hr5 style="background-color: white; float:right;">
                 <?=$ui->message?>
                 </hr5>
@@ -37,8 +37,7 @@
                 <?=$ui->message?>
                 </hr5>
                 <br>      
-                <?php } ?> 
-              
+                <?php } ?>
                 
             </div>
             

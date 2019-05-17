@@ -48,7 +48,6 @@ class Messages extends CI_Controller {
                 'user_id'=>$this->session->Member_session["Id"], // user_id == session id
                 'other_user_id'=>$this->input->post('Id'),
                 'message'=>$this->input->post('Message'),
-                'time'=>date('Y-m-d')
                 ); 
            $this->db->insert("messages",$data);
            redirect(base_url().'/Messages/message_list/'.$id);  
