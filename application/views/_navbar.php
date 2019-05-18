@@ -5,7 +5,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-primary topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-info topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -31,7 +31,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="<?= base_url()?>Home" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline  small">Anasayfa</span>
+                <span class="mr-2 d-none d-lg-inline small">Anasayfa</span>
                 <i class="fa fa-home fa"></i>
               </a>
              

@@ -2,7 +2,7 @@
   
 <div class="col-lg-9">
  
-        <div class="card" >
+        <div class="card border-info" >
           <div class="container">
             <div class="row">
               <img src="<?=base_url()?>upload/<?=$rs->picture?>" class="rounded-circle" alt="Cinque Terre" style="height: 150px; width: 150px; margin-top: 25px; float:left">

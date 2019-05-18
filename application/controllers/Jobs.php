@@ -57,7 +57,7 @@ class Jobs extends CI_Controller {
             $this->load->view('Jobs_picture_add',$data);
             
         }
-         public function job_picture_save($id){
+        public function job_picture_save($id){
             
              $data["id"]=$id;
                  
@@ -87,12 +87,12 @@ class Jobs extends CI_Controller {
                         
                 }
         }
-         public function job_picture_status(){
+        public function job_picture_status(){
             $query=$this->db->query("SELECT * FROM jobs WHERE sender_id=".$this->session->Member_session['Id']." ORDER BY id DESC LIMIT 1");
             $data["veriler"]=$query->result();
             $this->load->view('jobs_share',$data);
         }
-         public function job_picture_status_save($id){
+        public function job_picture_status_save($id){
              $data=array(
                 'status'=> $this->input->post('Status')
                 ); 
@@ -100,14 +100,15 @@ class Jobs extends CI_Controller {
               redirect(base_url().'Home');
         }
         
-         public function job_view($id){
-             
+        public function job_view($id){
+            $query=$this->db->query("SELECT * FROM jobs ORDER BY RAND() LIMIT 5");
+            $data["jobs"]=$query->result();
             $query=$this->db->query("SELECT * FROM jobs WHERE id=".$id);
             $data["veriler"]=$query->result();
             $this->load->view('job_page_view',$data);
             
          }
-          public function search($durum){
+        public function search($durum){
              
             $query=$this->db->query("SELECT * FROM jobs WHERE id=".$id);
             $data["veriler"]=$query->result();
@@ -126,6 +127,45 @@ class Jobs extends CI_Controller {
         $data['results']=$this->My_model->search_jobs($keyword);
         $this->load->view('result_view',$data);
         }
+        public function Job_save(){
+             
+              $data=array(
+                'user_id'=>$this->session->Member_session["Id"],
+                'user_name_l'=>$this->session->Member_session['username'],
+                'user_name_f'=>$this->session->Member_session['lastname'],
+                'job_id'=> $this->input->post('JobId'),
+                'title'=> $this->input->post('JobTitle'),
+                'company'=> $this->input->post('JobCompany'),
+                'city'=> $this->input->post('JobCity'),
+                'location'=> $this->input->post('JobLocation'),
+                'picture'=> $this->input->post('Picture'),
+                ); 
+            $this->session->set_flashdata("mesaj","Başvurunuz Başariyla gönderildi");
+            $this->db->insert("searchjob",$data);
+            redirect(base_url().'Home'); 
+             
+        }
+        
+        public function Job_view_mine(){
             
+        $query=$this->db->query("SELECT * FROM searchjob WHERE user_id=".$this->session->Member_session["Id"]);
+        $data["mine_jobs"]=$query->result();
+        
+        $query=$this->db->query("SELECT * FROM jobs ORDER BY RAND() LIMIT 10");
+        $data["jobs"]=$query->result();
+        
+        
+        $this->load->view('contact_list',$data);
+             
+        }
+        public function Job_publish(){
+            
+        $query=$this->db->query("SELECT * FROM jobs WHERE sender_id=".$this->session->Member_session["Id"]);
+        $data["mine_jobs"]=$query->result();
+        
+        $this->load->view('mine_jobs_publish',$data);
+             
+        }
+        
         }
            

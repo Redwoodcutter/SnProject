@@ -6,40 +6,29 @@
 <?php foreach($veriler as $rs) {?>
 <div class="container">
 <div class="col-lg-9">
-    
+    <div class="row">
      <?php foreach ($other_user_id as $uid){?>
-            <li class="list-group-item" ><a href="<?=base_url()?>Messages/message_list/<?=$uid->user_id?>"></a></li> 
-         
-        </ul>
- 
-        <div class="card" >
-          <div class="container">
-            <div class="row">
-              <img src="<?=base_url()?>upload/<?=$rs->picture?>" class="rounded-circle" alt="Cinque Terre" style="height: 150px; width: 150px; margin-top: 25px; float:left">
-              <div class="col-lg-9">
-                <div class="card-body"> 
-                    <h4 class="card-title"><b><?=$uid->user_firstname?><?php echo ' ';?> <?=$uid->user_lastname?></b></h4>
-                    <h5><?=$rs->e_mail?></h5>
-                    <p class="card-title"><?=$rs->city;echo ' '; ?><?=$rs->location?></p>
 
-                    <?php if($this->session->Member_session['Id'] == $rs->id){?>
-                    <div class="btn-group">
-                        <form>
-                        <button class="btn btn-primary " type="button" >
-                          Mesaj Gönder
-                        </button>
-                        </form>
-                    </div>
-                  
-                    <?php } ?>
-                    <hr>
-                    <p class="card-text"><?=$rs->pt_message?></p>
-                </div>
+            
+       <div class="col-lg-3">
+             
+        <div class="card card-group ">
+         <div class="card border-info" style="width: 18rem;">
+         <img class="card-img-top" src="<?=base_url()?>upload/<?=$uid->picture?>" alt="Card image cap" style="height: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title"><?=$uid->user_firstname?> <?=$uid->user_lastname?></h5>
+              <a href="<?=base_url()?>Messages/message_list/<?=$uid->other_user_id?>" class="btn btn-primary">Mesaj Gönder</a>
             </div>
-           </div>
-        </div>
-    </div>
+            </div>   
+        </div>            
+        
+       </div>
+          
+       
+   
          <?php } ?>
+         </div>
+     </div>
     </div>
     
 <?php } ?>

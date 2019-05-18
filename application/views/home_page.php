@@ -15,10 +15,10 @@
             <div class="card text-center">
                 <div class="card-body">
                   <p class="card-text">Bir Gönderi başlat</p>
-                  <a href="#" data-toggle="modal" data-target="#PostAdd" class="btn btn-primary">Yazı</a>
-                  <a href="#" data-toggle="modal" data-target="#PictureAddTimeline" class="btn btn-primary">Resim</a>
-                  <a href="#" data-toggle="modal" data-target="#VideoAdd" class="btn btn-primary">video</a>
-                  <a href="#" data-toggle="modal" data-target="#Documents" class="btn btn-primary">dokuman</a>
+                  <a href="#" data-toggle="modal" data-target="#PostAdd" class="btn btn-info">Yazı</a>
+                  <a href="#" data-toggle="modal" data-target="#PictureAddTimeline" class="btn btn-info">Resim</a>
+                  <a href="#" data-toggle="modal" data-target="#VideoAdd" class="btn btn-info">video</a>
+                  <a href="#" data-toggle="modal" data-target="#Documents" class="btn btn-info">dokuman</a>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <?php if($this->session->Member_session['Id'] == $rs->id){?>
                 <div class="btn-group">
                     <form>
-                     <button type="button" href="<?= base_url()?>Home/profile/<?=$this->session->Member_session["Id"] ?>" data-toggle="modal"  class="btn btn-primary">profili görüntüle</button>
+                     <button type="button" href="<?= base_url()?>Home/profile/<?=$this->session->Member_session["Id"] ?>" data-toggle="modal"  class="btn btn-info">profili görüntüle</button>
                     </form>
                 </div>
                 <?php }else {?>

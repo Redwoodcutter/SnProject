@@ -11,7 +11,7 @@
         <div class="col-md-3">
              <?php if($this->session->flashdata("mesaj")) { ?>
                      <div class="alert alert-info">
-                         <a href="#" class="alert-danger">Hata</a>
+                         <a href="#" class="alert-danger"></a>
                          <br>
                             <?=$this->session->flashdata("mesaj");?> 
                         </div>
@@ -19,7 +19,7 @@
 
         <!-- Search Widget -->
         <div class="card my-4">
-             <div class="card text-white bg-primary mb-3">
+             <div class="card text-white bg-info mb-3">
         <?php foreach($veriler as $rs) {?>
         <div class="container">
          <div class="row">
@@ -44,9 +44,9 @@
         </div>
 
         <!-- Categories Widget -->
-        <div class="card border-primary mb-3">
+        <div class="card border-info mb-3">
             <div class="card-header">Akışınıza Ekleyin</div>
-            <div class="card-body text-primary">
+            <div class="card-body text-info">
             <div class="row">
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
@@ -62,9 +62,9 @@
         </div>
 
         <!-- Side Widget -->
-        <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card border-info mb-3" style="max-width: 18rem;">
             <div class="card-header">Gruplar</div>
-            <div class="card-body text-primary">
+            <div class="card-body text-info">
               <h5 class="card-title">Üye olunan gruplar gelicek</h5>
               <p class="card-text">Üye olunan gruplar gelicek</p>
             </div>
@@ -75,23 +75,22 @@
       <div class="col-lg-6">
           
             <h1 class="h3 mb-0 text-gray-800"></h1>
-            <div class="card text-center border-primary">
+            <div class="card text-center border-info">
                 <div class="card-body">
-                  <a href="#" data-toggle="modal" data-target="#PostAdd" class=" btn">Bir Gönderi başlat</a>
-                  <a href="#" data-toggle="modal" data-target="#PostAdd" class="btn btn-primary">Yazı</a>
-                  <a href="#" data-toggle="modal" data-target="#PictureAddTimeline" class="btn btn-primary">Resim</a>
-                  <a href="#" data-toggle="modal" data-target="#VideoAdd" class="btn btn-primary">video</a>
-                  <a href="#" data-toggle="modal" data-target="#Documents" class="btn btn-primary">dokuman</a>
+                  <a href="#" data-toggle="modal" data-target="#PostAdd" class=" btn"> Bir Gönderi başlat</a>
+                  <a href="#" data-toggle="modal" data-target="#PostAdd" class="btn btn-info"><i class="fas fa-pen fa-sm"></i> Yazı</a>
+                  <a href="#" data-toggle="modal" data-target="#PictureAddTimeline" class="btn btn-info"><i class="fas fa-image fa-sm"></i> Resim</a>
+                  <a href="#" data-toggle="modal" data-target="#VideoAdd" class="btn btn-info"><i class="fas fa-video fa-sm"></i> Video</a>
                 </div>
             </div>
         <!-- Date/Time -->
         <hr>
           <?php foreach($timeline_relations as $tr){ if($tr->status=='1')?>
             <?php foreach ($timeline_post as $tp){ ?>
-            <?php if($tp->picture =='0'){ ?>
-        <div class="card border-primary ">
+            <?php if($tp->picture =='0' && $tp->video=='0'){ ?>
+        <div class="card border-info ">
           <div class="card-header py-3">
-              <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?></h6></a>
+              <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-info"><?=$tp->username?></h6></a>
           </div>
           <div class="card-body">
             <div class="text-center">
@@ -103,10 +102,10 @@
           </footer>
          </div>
         <hr>
-         <?php }else if ($tp->picture!='0'){ ?>
-           <div class="card border-primary">
+         <?php }else if ($tp->video=='0' && $tp->mesaj==''){ ?>
+           <div class="card border-info">
          <div class="card-header py-3">
-             <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?></h6></a>
+             <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-info"><?=$tp->username?></h6></a>
           </div>
           <div class="card-body">
             <div class="text-center">
@@ -118,10 +117,10 @@
             </footer>
            </div>
               <hr>
-        <?php }if ($tp->video!='0' && $tp->picture=='0' && $tp->mesaj==''){ ?>
-               <div class="card border-primary">
+        <?php }if ($tp->video !='0' && $tp->picture=='0' && $tp->mesaj==''){ ?>
+               <div class="card border-info">
          <div class="card-header py-3">
-             <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-primary"><?=$tp->username?></h6></a>
+             <a href="<?=base_url()?>Home/profile/<?=$this->session->Member_session["Id"]?>"><h6 class="m-0 font-weight-bold text-info"><?=$tp->username?></h6></a>
           </div>
           <div class="card-body">
             <div class="text-center">
@@ -141,9 +140,9 @@
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
         <!-- Categories Widget -->
-        <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card border-info mb-3" style="max-width: 18rem;">
             <div class="card-header">Akışınıza Ekleyin</div>
-            <div class="card-body text-primary">
+            <div class="card-body text-info">
              <div class="col-lg-12">
                 <ul class="list-unstyled mb-0">
                   <li>
@@ -172,7 +171,7 @@
                                     <?php if($this->session->Member_session['Id'] == $rs->id){?>
                                     <div class="btn-group">
                                         <form>
-                                        <button class="btn btn-primary " type="button">
+                                        <button class="btn btn-info " type="button">
                                          Arkadaşlık istegi gönder
                                         </button>
                                         </form>
@@ -222,7 +221,7 @@
                 </div>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <button class="btn btn-primary" type="submit">Share</button>
+                  <button class="btn btn-info" type="submit">Share</button>
                 </div>
               </div>
             </div>
@@ -249,7 +248,7 @@
                           </select>
                                 
                                 </div>
-                          <button type="submit" class="btn btn-primary">Resimi Kaydet</button>
+                          <button type="submit" class="btn btn-info">Resimi Kaydet</button>
                         </form>
               </div>
             </div>
@@ -271,9 +270,17 @@
                       <span class="input-group-text" id="basic-addon3">Link Ekle</span>
                     </div>
                     <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="keyword">
+                    <input  hidden type="text" class="form-control" id="Like" placeholder="Like" name="Like" value="0" >
+                    <input  hidden type="text" class="form-control" id="Username" placeholder="Username" name="Username" value="<?=$this->session->Member_session["username"];echo ' ';?><?=$this->session->Member_session["lastname"]?>" >    
+                      <select name="tag">
+                            <option value="Web">Web</option>
+                            <option value="Css">Css</option>
+                            <option value="HTML">HTML</option>
+                            <option value="JavaScript">JavaScript</option>
+                      </select>
                      <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <button class="btn btn-primary" type="submit">Yükle</button>
+                  <button class="btn btn-info" type="submit">Yükle</button>
                 </div>
                      </form>
                      
@@ -298,9 +305,10 @@
                       <span class="input-group-text" id="basic-addon3">Link Ekle</span>
                     </div>
                     <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                        
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
+                  <a class="btn btn-info" href="login.html">Logout</a>
                 </div>
               </div>
             </div>

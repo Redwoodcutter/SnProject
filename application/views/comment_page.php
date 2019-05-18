@@ -26,26 +26,21 @@
          <?php if($veri[0]->picture !='0'){ ?>
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="<?=base_url()?>upload/<?=$veri[0]->picture?>" alt="">
-         <?php }Else{ ?>
-        <hr>
         
+         <?php } else if($veri[0]->video =='0' && $veri[0]->picture =='0'){ ?>
+       
+         
         <!-- Post Content -->
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
-        <blockquote class="blockquote">
-          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">Someone famous in
-            <cite title="Source Title">Source Title</cite>
-          </footer>
-        </blockquote>
+        <p><?=$veri[0]->mesaj?></p>
         
-         <?php } ?>
-        <hr>
+         <?php } else if($veri[0]->picture =='0' && $veri[0]->mesaj==''){ ?>
+         <iframe width="700" height="450" src="https://www.youtube.com/embed/<?=$veri[0]->video?>"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+        
+       
+            
+            <?php } ?>
 
+        <hr> 
         
         <!-- Comments Form -->
         <div class="card my-4">
@@ -142,3 +137,5 @@
     <!-- /.row -->
 
   </div>
+            
+        <?php     $this->load->view('_footer'); ?>
