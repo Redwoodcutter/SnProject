@@ -139,6 +139,7 @@ class Jobs extends CI_Controller {
                 'city'=> $this->input->post('JobCity'),
                 'location'=> $this->input->post('JobLocation'),
                 'picture'=> $this->input->post('Picture'),
+                'picture_user'=>$this->session->Member_session['picture'],
                 ); 
             $this->session->set_flashdata("mesaj","Başvurunuz Başariyla gönderildi");
             $this->db->insert("searchjob",$data);
@@ -165,6 +166,24 @@ class Jobs extends CI_Controller {
         
         $this->load->view('mine_jobs_publish',$data);
              
+        }
+        public function job_contact_delete($id){
+            
+        $this->db->query("DELETE FROM searchjob WHERE id=".$id    );
+        redirect(base_url().'Jobs/Job_view_mine');
+    
+        }
+         public function job_mine_delete($id){
+            
+        $this->db->query("DELETE FROM jobs WHERE id=".$id    );
+        redirect(base_url().'Jobs/Job_publish');
+    
+        }
+        public function jobs_people($id){
+            
+        $query=$this->db->query("SELECT * FROM searchjob WHERE job_id=".$id);
+        $data["job_people"]=$query->result();
+        $this->load->view('jobs_list',$data);
         }
         
         }

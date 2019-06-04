@@ -67,14 +67,13 @@
               <p class="card-text"><?=$j->company?></p>
                <p class="card-text"><?=$j->city?> <?=$j->location?></p>
               <a href="<?=base_url()?>Jobs/job_view/<?=$j->job_id?>" class="btn btn-primary">İlana Git</a>
+              <hr>
+              <a href="<?=base_url()?>Jobs/job_contact_delete/<?=$j->id?>" class="btn btn-primary">Başvuruyu geri çek</a>
             </div>
             </div>   
         </div>            
         </div>
-            
-             
          <?php } ?>
-            
           </div>
         <br/>
     </div>

@@ -67,6 +67,10 @@
               <p class="card-text"><?=$j->company?></p>
                <p class="card-text"><?=$j->city?></p>
               <a href="<?=base_url()?>Jobs/job_view/<?=$j->id?>" class="btn btn-primary">İlana Git</a>
+              <hr>
+              <a href="<?=base_url()?>Jobs/job_mine_delete/<?=$j->id?>" class="btn btn-primary">İlani geri çek</a>
+               <hr>
+              <a href="<?=base_url()?>Jobs/jobs_people/<?=$j->id?>" class="btn btn-primary">Başvuranları Listele</a>
             </div>
             </div>   
         </div> 

@@ -141,18 +141,15 @@
       <div class="col-md-3">
         <!-- Categories Widget -->
         <div class="card border-info mb-3" style="max-width: 18rem;">
-            <div class="card-header">Akışınıza Ekleyin</div>
+            <div class="card-header">İş ilanlarınızı yönetin</div>
             <div class="card-body text-info">
              <div class="col-lg-12">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#">Web Design</a>
+                    <a href="<?=base_url()?>Jobs/Job_view_mine">İş başvurusu yaptıklarınız</a>
                   </li>
                   <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
+                    <a href="<?=base_url()?>Jobs/Job_publish">Size Ait olan iş ilanları</a>
                   </li>
                 </ul>
               </div>
@@ -171,8 +168,8 @@
                                     <?php if($this->session->Member_session['Id'] == $rs->id){?>
                                     <div class="btn-group">
                                         <form>
-                                        <button class="btn btn-info " type="button">
-                                         Arkadaşlık istegi gönder
+                                        <button  href="#" class="btn btn-info " type="button">
+                                            Profili Gör
                                         </button>
                                         </form>
                                     </div>
@@ -240,16 +237,21 @@
                             <input type="file" class="form-control" id="picture" required name="Picture"  >
                             <input  hidden type="text" class="form-control" id="Like" placeholder="Like" name="Like" value="0" >
                             <input  hidden type="text" class="form-control" id="Username" placeholder="Username" name="Username" value="<?=$this->session->Member_session["username"];echo ' ';?><?=$this->session->Member_session["lastname"]?>" > 
-                          <select name="tag">
+                          <br/>
+                               Tag Secin <select class="card-header" name="tag">
                             <option value="Web">Web</option>
                             <option value="Css">Css</option>
                             <option value="HTML">HTML</option>
                             <option value="JavaScript">JavaScript</option>
                           </select>
-                                
+                        
+                
+                        <div class="modal-footer">
+                                <button type="submit" class="btn btn-info">Resimi Kaydet</button>
                                 </div>
-                          <button type="submit" class="btn btn-info">Resimi Kaydet</button>
                         </form>
+                         </div>
+                          
               </div>
             </div>
         </div> 
@@ -264,15 +266,19 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                 <div class="input-group mb-3">
+                  <div class="container">
+                 <div class="input-group mb-5">
                      <form action="<?php echo site_url('Timeline/video_send');?>" method="post" enctype="multipart/form-data">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon3">Link Ekle</span>
+                      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="keyword">
                     </div>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="keyword">
+                    
                     <input  hidden type="text" class="form-control" id="Like" placeholder="Like" name="Like" value="0" >
                     <input  hidden type="text" class="form-control" id="Username" placeholder="Username" name="Username" value="<?=$this->session->Member_session["username"];echo ' ';?><?=$this->session->Member_session["lastname"]?>" >    
-                      <select name="tag">
+                      
+                        
+                        Tag Secin<select class="card-header" name="tag">
                             <option value="Web">Web</option>
                             <option value="Css">Css</option>
                             <option value="HTML">HTML</option>
@@ -285,7 +291,7 @@
                      </form>
                      
                  </div>
-               
+                  </div>
               </div>
             </div>
           </div>
