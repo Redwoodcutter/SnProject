@@ -12,12 +12,12 @@ Templates.
 Changelog and New Features
 **************************
 
-1.Profile System Added
-2.Message System Added
-3.Search and Add Job System Added.
-4.Apply For Job
-5.View References Profile
-6.Basic Timeline and Relationships
+- `Profile System Added` _
+- `Message System Added` _
+- `Search and Add Job System Added.` _
+- `Apply For Job` _
+- `View References Profile` _
+- `Basic Timeline and Relationships` _
 
 *******************
 Server Requirements
